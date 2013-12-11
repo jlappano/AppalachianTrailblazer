@@ -32,6 +32,18 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :test do
+  gem 'shoulda-matchers'
+end
+
+group :development, :test do
+  gem 'jasmine-core', github: 'pivotal/jasmine'
+  gem 'jasmine', github: 'pivotal/jasmine-gem'
+  gem 'rspec-rails'
+  gem 'pry-rails'
+  gem 'factory_girl_rails'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
