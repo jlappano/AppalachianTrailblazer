@@ -1,16 +1,3 @@
-// var Shelter = Backbone.Model.extend({
-  
-//   defaults: { 
-//     prompt: null, 
-//   },
-
-//   intialize: function(latitude, longtitude, name){
-//     this.latitude = latitude;
-//     this.longtitude = longtitude;
-//     this.name = name;
-//   }
-
-// });
 
 
 describe("Shelter", function(){
@@ -29,5 +16,11 @@ describe("Shelter", function(){
     expect(shelter.get('name')).toBe("Smoke House");
     expect(shelter.get('prompt')).toBe(null);
  });
+
+  it('Gets an adventure prompt object and sets it as an attribute.', function() {
+    shelter.getAdventurePrompt("adventurePrompt");
+
+    expect(shelter.get('prompt')).not.toBe(null);
+  });
 
 })
