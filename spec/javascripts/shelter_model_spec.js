@@ -15,7 +15,7 @@ describe("Shelter", function(){
     expect(shelter.get('longitude')).toBe(333.333); 
     expect(shelter.get('name')).toBe("Smoke House");
     expect(shelter.get('prompt')).toBe(null);
- });
+  });
 
   it('Gets an adventure prompt object and sets it as an attribute.', function() {
     shelter.getAdventurePrompt("adventurePrompt");
@@ -23,4 +23,7 @@ describe("Shelter", function(){
     expect(shelter.get('prompt')).not.toBe(null);
   });
 
+
 })
+
+

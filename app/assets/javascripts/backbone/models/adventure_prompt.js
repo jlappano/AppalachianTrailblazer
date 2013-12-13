@@ -1,0 +1,1 @@
+var AdventurePrompt = Backbone.Model.extend({})

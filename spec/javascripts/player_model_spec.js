@@ -1,23 +1,52 @@
 describe("Player", function(){
 
-  var player, shelter;
+  var player, shelter, trail;
 
   beforeEach(function() {
-    shelter = new Shelter({ latitude: 555.55, longitude: 333.333, sequence: 1, name: "Smoke House" });
-    player = new Player({ name: "Beans"});
+    trail = new ShelterList(new Shelter({sequence:1}));
+    player = new Player({ name: "Beans", shelter: trail.models[0], shelterList: trail});
+    shelter = new Shelter({ latitude: 555.55, longitude: 333.333, name: "Smoke House", sequence: 1 });
 
   });
 
   it('Will set passed attributes on the model instance when created.', function() { 
-    // what are the values expected here for each of the
-    // attributes in our Todo?
     expect(player.get('name')).toBe("Beans"); 
- });
+  });
 
-  // it('Gets an adventure prompt object and sets it as an attribute.', function() {
-  //   shelter.getAdventurePrompt("adventurePrompt");
+  it('Will be created with morale at 100 percent.', function() {
+    expect(player.get('morale')).toBe(100);
+  });
 
-  //   expect(shelter.get('prompt')).not.toBe(null);
-  // });
+  it('Will be created with a shelter with a sequence of one.', function() {
+    expect(player.get('shelter').get('sequence')).toBe(1);
+  });
+
+  it('Can change shelters sequentially.', function() {
+
+     trail.add([
+      {sequence: 2},
+      {sequence: 3}
+    ]);
+
+     player.hikeTheTrail();
+     expect(player.get('shelter').get('sequence')).toBe(2);
+  });
+
+  it('Can change morale based on input', function() {
+    player.changeMorale(-10);
+    expect(player.get('morale')).toBe(90);
+  });
+
+  it('Cannot change morale to be higher than 100', function() {
+    player.changeMorale(20);
+    expect(player.get('morale')).toBe(100);
+  });
+
+  it('checks to see if morale is zero', function() {
+    player.changeMorale(-140);
+    
+  });
+
+
 
 })
