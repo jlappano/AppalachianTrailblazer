@@ -8,10 +8,14 @@ var Player = Backbone.Model.extend({
     shelter: 0 
   },
 
-  intialize: function(name, shelter, shelterList){
+  intialize: function(name, shelterList){
     this.name = name;
-    this.shelter = shelter;
     this.shelterList = shelterList;
+  },
+
+  setInitialShelter: function(){
+    var trail = this.get("shelterList");
+    this.set({shelter: trail.models[0]});
   },
 
   hikeTheTrail: function(){
@@ -24,10 +28,11 @@ var Player = Backbone.Model.extend({
     var morale = this.get("morale");
 
     morale += integer;
-    
+
     if(morale > 100){
       morale = 100;
     }
+
     this.set({morale: morale});
   }
 });

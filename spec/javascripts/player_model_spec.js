@@ -4,7 +4,7 @@ describe("Player", function(){
 
   beforeEach(function() {
     trail = new ShelterList(new Shelter({sequence:1}));
-    player = new Player({ name: "Beans", shelter: trail.models[0], shelterList: trail});
+    player = new Player({ name: "Beans", shelterList: trail});
     shelter = new Shelter({ latitude: 555.55, longitude: 333.333, name: "Smoke House", sequence: 1 });
 
   });
@@ -18,6 +18,7 @@ describe("Player", function(){
   });
 
   it('Will be created with a shelter with a sequence of one.', function() {
+    player.setInitialShelter();
     expect(player.get('shelter').get('sequence')).toBe(1);
   });
 
@@ -27,7 +28,8 @@ describe("Player", function(){
       {sequence: 2},
       {sequence: 3}
     ]);
-
+     
+     player.setInitialShelter();
      player.hikeTheTrail();
      expect(player.get('shelter').get('sequence')).toBe(2);
   });
@@ -44,7 +46,7 @@ describe("Player", function(){
 
   it('checks to see if morale is zero', function() {
     player.changeMorale(-140);
-    
+
   });
 
 

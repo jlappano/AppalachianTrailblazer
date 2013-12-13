@@ -1,18 +1,20 @@
 var Shelter = Backbone.Model.extend({
   
   defaults: { 
-    prompt: null, 
+    adventurePrompt: null, 
   },
 
-  intialize: function(latitude, longtitude, sequence, name){
+  intialize: function(latitude, longtitude, sequence, name, adventureList){
     this.sequence = sequence;
     this.latitude = latitude;
     this.longtitude = longtitude;
     this.name = name;
+    this.adventureList = adventureList;
   },
 
-  getAdventurePrompt: function(adObj){
-    this.set({ prompt: adObj });
+  getAdventurePrompt: function(){
+    var adventures = this.get("adventureList");
+    this.set({adventurePrompt: adventures.models.sample});
   }
 
 });
