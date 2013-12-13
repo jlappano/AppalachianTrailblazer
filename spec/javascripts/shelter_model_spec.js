@@ -1,5 +1,3 @@
-
-
 describe("Shelter", function(){
 
   var shelter, adventures;
