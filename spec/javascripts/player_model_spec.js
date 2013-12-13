@@ -28,7 +28,7 @@ describe("Player", function(){
       {sequence: 2},
       {sequence: 3}
     ]);
-     
+
      player.setInitialShelter();
      player.hikeTheTrail();
      expect(player.get('shelter').get('sequence')).toBe(2);
@@ -46,6 +46,7 @@ describe("Player", function(){
 
   it('checks to see if morale is zero', function() {
     player.changeMorale(-140);
+    expect(player.get('won')).toBe(false);
 
   });
 

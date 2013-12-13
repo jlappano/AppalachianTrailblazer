@@ -5,7 +5,8 @@ var Player = Backbone.Model.extend({
 
   defaults: {
     morale: 100,
-    shelter: 0 
+    shelter: 0,
+    won: null 
   },
 
   intialize: function(name, shelterList){
@@ -31,6 +32,9 @@ var Player = Backbone.Model.extend({
 
     if(morale > 100){
       morale = 100;
+    }
+    else if(morale <= 0){
+      this.set({won: false});
     }
 
     this.set({morale: morale});
