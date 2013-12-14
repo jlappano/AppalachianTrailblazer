@@ -14,7 +14,7 @@ var Shelter = Backbone.Model.extend({
 
   getAdventurePrompt: function(){
     var adventures = this.get("adventureList");
-    this.set({adventurePrompt: adventures.models.sample});
+    this.set({adventurePrompt: _.sample(adventures.models)});
   }
 
 });

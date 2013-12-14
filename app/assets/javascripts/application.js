@@ -24,7 +24,7 @@
 var adventures = new AdventurePromptList();
 
 adventures.add([
-  
+
       { question: "Do you drink the murky water?", 
       answerYes: "You have dysentary!", 
       answerNo: "Bear Grylls would be proud!", 
@@ -33,13 +33,23 @@ adventures.add([
 
       { question: "Eat the yellow snow?", 
       answerYes: "Mmmm tastes like lemon", 
-      answerNo: "You missed out man", 
+      answerNo: "You missed out man",
       consequenceYes: 5,
       consequenceNo: -5 },
 
     ]);
 
 var shelters = new ShelterList();
+
+// latitude, longtitude, sequence, name, adventureList
+
+shelters.add([
+
+    { latitude: 555.55, longitude: 333.333, sequence: 1, name: "Smoke House", adventureList: adventures }, 
+    { latitude: 555.57, longitude: 333.331, sequence: 2, name: "Stack House", adventureList: adventures }
+
+    ]);
+
 new Router(adventures, shelters);
 Backbone.history.start();
 

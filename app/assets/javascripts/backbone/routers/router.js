@@ -20,7 +20,8 @@ var Router = Backbone.Router.extend({
 
   startGame: function(name) {
     console.log(name);
-    this.loadView(new GameView({name: name, adventures: this.adventures}));
+    var player = new Player({name: name, shelterList: this.shelters});
+    this.loadView(new GameView({model: player}));
   },
 
   loadView: function(view) {

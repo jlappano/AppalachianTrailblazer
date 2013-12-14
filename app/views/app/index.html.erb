@@ -11,8 +11,56 @@
 </script>
 
 <script type="text/html" class="game">
-  <p><%%= this.model.get("name") %></p>
+  <p>
+    Hello <%%= this.model.get("name") %>! You are at the 
+      <br />
+    <%%= this.model.get("shelter").get("name") %> shelter.
+      <br />
+    Your Morale is <%%= this.model.get("morale")%> out of 100.
+      <br />
+    <%%= this.model.get("shelter").get("adventurePrompt").get("question") %>
+      <br />
+    <div class="answer-buttons">
+      <button class="yes">Yes</button> <button class="no">No</button>
+    </div>
+  </p>
+</script>
 
+<script type="text/html" class="answerYes">
+  <p>
+    <%%= this.model.get("answerYes")%>
+      <br />
+    
+
+    <%% if(this.model.get("consequenceYes") >= 0){%>
+    + <%%= this.model.get("consequenceYes")%> to morale
+
+    <%%} else {%>
+    <%%= this.model.get("consequenceYes")%> to morale
+    <%% }%>
+
+    <div class="next">
+      <button class="next">Onwards</button>
+    </div>
+
+  </p>
+</script>
+
+<script type="text/html" class="answerNo">
+  <p>
+
+    <%% if(this.model.get("consequenceNo") >= 0){%>
+    + <%%= this.model.get("consequenceNo")%> to morale
+
+    <%%} else {%>
+    <%%= this.model.get("consequenceNo")%> to morale
+    <%% }%>
+
+    <div class="next">
+      <button class="next">Onwards</button>
+    </div>
+
+  </p>
 </script>
 
 </div>
