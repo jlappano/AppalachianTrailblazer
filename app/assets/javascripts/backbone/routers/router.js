@@ -1,7 +1,13 @@
 var Router = Backbone.Router.extend({
   routes: {
     "": "index",
-    "characterCreate": "characterCreate"
+    "characterCreate": "characterCreate",
+    "startGame/:name": "startGame"
+  },
+
+  initialize: function(adventures, shelters) {
+    this.adventures = adventures;
+    this.shelters = shelters;
   },
 
   index: function() {
@@ -12,8 +18,12 @@ var Router = Backbone.Router.extend({
     this.loadView(new CharacterCreateView());
   },
 
-  loadView: function(view) {
+  startGame: function(name) {
+    console.log(name);
+    this.loadView(new GameView({name: name, adventures: this.adventures}));
+  },
 
+  loadView: function(view) {
     this.main && this.main.remove();
     this.main = view;
     $("body").append(view.el);

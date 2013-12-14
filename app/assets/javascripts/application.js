@@ -21,5 +21,27 @@
 //= require_tree ./backbone/views
 //= require_self
 
-new Router();
+var adventures = new AdventurePromptList();
+
+adventures.add([
+  
+      { question: "Do you drink the murky water?", 
+      answerYes: "You have dysentary!", 
+      answerNo: "Bear Grylls would be proud!", 
+      consequenceYes: -20,
+      consequenceNo: 10 },
+
+      { question: "Eat the yellow snow?", 
+      answerYes: "Mmmm tastes like lemon", 
+      answerNo: "You missed out man", 
+      consequenceYes: 5,
+      consequenceNo: -5 },
+
+    ]);
+
+var shelters = new ShelterList();
+new Router(adventures, shelters);
 Backbone.history.start();
+
+
+// watchList.fetch({reset: true});

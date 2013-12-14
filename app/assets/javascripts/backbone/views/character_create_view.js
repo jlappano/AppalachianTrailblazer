@@ -9,27 +9,20 @@ var CharacterCreateView = Backbone.View.extend({
   },
 
   events: {
-    "click button.submit": "grabName"
+    "click button.submit": "startGame"
   },
 
   render: function() {
     this.$el.html(this.template());
   },
 
-  grabName: function() {
+  startGame: function() {
     var name = this.$el.find("input[name='character-name']").val();
-    console.log(name);
-    this.sayHi();
+    Backbone.history.navigate("startGame/" + name, {trigger: true});
   },
 
-  //on click
-  //create AdventureCollection
-  //add adventures to the list
-  //create ShelterCollection
+  //create player
+  //change the route
 
-
-  sayHi: function() {
-    console.log("hey");
-  }
 
 });
