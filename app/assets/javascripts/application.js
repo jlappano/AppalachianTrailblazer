@@ -37,6 +37,12 @@ adventures.add([
       consequenceYes: 5,
       consequenceNo: -5 },
 
+      { question: "You are tired. in town, A postal clerk directes you to the Hapiday Motor Inn, Do you stay at this establishment?",
+      answerYes: "Woo! Hot Water!",
+      answerNo: "Wake up with slugs on your face",
+      consequenceYes: 20,
+      consequenceNo: -10 }
+
     ]);
 
 var shelters = new ShelterList();
@@ -46,7 +52,11 @@ var shelters = new ShelterList();
 shelters.add([
 
     { latitude: 555.55, longitude: 333.333, sequence: 1, name: "Smoke House", adventureList: adventures }, 
-    { latitude: 555.57, longitude: 333.331, sequence: 2, name: "Stack House", adventureList: adventures }
+    { latitude: 555.57, longitude: 333.331, sequence: 2, name: "Stack House", adventureList: adventures },
+    { latitude: 555.58, longitude: 333.330, sequence: 3, name: "Lookout Point", adventureList: adventures }, 
+    { latitude: 555.59, longitude: 333.328, sequence: 4, name: "Top Point", adventureList: adventures }, 
+    { latitude: 555.60, longitude: 333.326, sequence: 5, name: "Fort Look", adventureList: adventures }, 
+    { latitude: 555.62, longitude: 333.324, sequence: 6, name: "Perry Point", adventureList: adventures }
 
     ]);
 

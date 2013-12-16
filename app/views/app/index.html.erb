@@ -28,38 +28,37 @@
 
 <script type="text/html" class="answerYes">
   <p>
-    <%%= this.model.get("answerYes")%>
+    <%% var adventure = this.model.get("shelter").get("adventurePrompt")%>
+    <%%= adventure.get("answerYes")%>
       <br />
-    
-
-    <%% if(this.model.get("consequenceYes") >= 0){%>
-    + <%%= this.model.get("consequenceYes")%> to morale
+    <%% if(adventure.get("consequenceYes") >= 0){%>
+    + <%%= adventure.get("consequenceYes")%> to morale
 
     <%%} else {%>
-    <%%= this.model.get("consequenceYes")%> to morale
+    <%%= adventure.get("consequenceYes")%> to morale
     <%% }%>
 
     <div class="next">
       <button class="next">Onwards</button>
     </div>
-
   </p>
 </script>
 
 <script type="text/html" class="answerNo">
   <p>
-
-    <%% if(this.model.get("consequenceNo") >= 0){%>
-    + <%%= this.model.get("consequenceNo")%> to morale
+    <%% var adventure = this.model.get("shelter").get("adventurePrompt")%>
+    <%%= adventure.get("answerNo")%>
+      <br />
+    <%% if(adventure.get("consequenceNo") >= 0){%>
+    + <%%= adventure.get("consequenceNo")%> to morale
 
     <%%} else {%>
-    <%%= this.model.get("consequenceNo")%> to morale
+    <%%= adventure.get("consequenceNo")%> to morale
     <%% }%>
 
     <div class="next">
       <button class="next">Onwards</button>
     </div>
-
   </p>
 </script>
 

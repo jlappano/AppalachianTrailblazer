@@ -36,7 +36,7 @@ var Player = Backbone.Model.extend({
     else if(morale <= 0){
       this.set({won: false});
     }
-
+    console.log(morale);
     this.set({morale: morale});
   }
 });

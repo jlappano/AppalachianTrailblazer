@@ -21,6 +21,7 @@ var Router = Backbone.Router.extend({
   startGame: function(name) {
     console.log(name);
     var player = new Player({name: name, shelterList: this.shelters});
+    player.setInitialShelter();
     this.loadView(new GameView({model: player}));
   },
 

@@ -1,21 +1,28 @@
+//model is player
 var AnswerViewNo = Backbone.View.extend({
 
   el: $("<div>"),
 
   template: _.template($("script.answerNo[type='text/html'").html()),
 
-
   initialize: function(){
     console.log(this.model);
-     this.render();
-    // this.$el.append( $("<p>answer</p>") );
-    // this.$el.append( $("<button>move on</button>") );
+    this.render();
+  },
+
+  events: {
+    "click button.next": "moveOn"
   },
 
   render: function() {
     $("body").append(this.el);
     this.$el.html(this.template());
-  }
+  },
 
+  moveOn: function() {
+    this.model.hikeTheTrail();
+    this.$el.remove();
+    new GameView({model: this.model});
+  }
 
 });

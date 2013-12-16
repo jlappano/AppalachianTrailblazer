@@ -1,14 +1,12 @@
+//model is Player
 var GameView = Backbone.View.extend({
   el: $("<div>"),
 
   template: _.template($("script.game[type='text/html'").html()),
 
   initialize: function() {
-    this.model.setInitialShelter();
     var shelter = this.model.get("shelter");
     shelter.getAdventurePrompt();
-
-    // var adventure = shelter.get("adventurePrompt");
     this.render();
   },
 
@@ -18,15 +16,17 @@ var GameView = Backbone.View.extend({
   },
 
   renderAnswerYes: function() {
-    var adventure = this.model.get("shelter").get("adventurePrompt")
+    var adventure = this.model.get("shelter").get("adventurePrompt");
     this.$(".answer-buttons").remove();
-    new AnswerViewYes({model: adventure});
+    this.model.changeMorale(adventure.get("consequenceYes"));
+    new AnswerViewYes({model: this.model});
   },
 
   renderAnswerNo: function() {
-    var adventure = this.model.get("shelter").get("adventurePrompt")
+    var adventure = this.model.get("shelter").get("adventurePrompt");
     this.$(".answer-buttons").remove();
-    new AnswerViewNo({model: adventure});
+    this.model.changeMorale(adventure.get("consequenceNo"));
+    new AnswerViewNo({model: this.model});
   },
 
   render: function() {
