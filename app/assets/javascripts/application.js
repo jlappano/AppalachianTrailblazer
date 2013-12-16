@@ -49,16 +49,15 @@ var shelters = new ShelterList();
 
 // latitude, longtitude, sequence, name, adventureList
 
-shelters.add([
+shelters.fetch({success: function(){
+    shelters.each(function(shelter) {
+      shelter.set({adventureList: adventures});
+  }); 
+}});
 
-    { latitude: 555.55, longitude: 333.333, sequence: 1, name: "Smoke House", adventureList: adventures }, 
-    { latitude: 555.57, longitude: 333.331, sequence: 2, name: "Stack House", adventureList: adventures },
-    { latitude: 555.58, longitude: 333.330, sequence: 3, name: "Lookout Point", adventureList: adventures }, 
-    { latitude: 555.59, longitude: 333.328, sequence: 4, name: "Top Point", adventureList: adventures }, 
-    { latitude: 555.60, longitude: 333.326, sequence: 5, name: "Fort Look", adventureList: adventures }, 
-    { latitude: 555.62, longitude: 333.324, sequence: 6, name: "Perry Point", adventureList: adventures }
-
-    ]);
+// shelters.each(function(shelter) {
+//   shelter.set({adventureList: adventures});
+// });
 
 new Router(adventures, shelters);
 Backbone.history.start();

@@ -10,6 +10,3 @@ class AddAdventureTable < ActiveRecord::Migration
     end
   end
 end
-
-
-#question, answerYes, answerNo, consequenceYes, consequenceNo
