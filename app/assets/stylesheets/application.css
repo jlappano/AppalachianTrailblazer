@@ -12,9 +12,13 @@
  *= require_tree .
  */
 
-body{
+body {
   text-align: center;
   background-color: black;
   color: white;
-},
+}
 
+.game-view {
+  border: 2px solid red;
+  padding: 5px;
+}

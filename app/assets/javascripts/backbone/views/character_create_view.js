@@ -1,6 +1,6 @@
 var CharacterCreateView = Backbone.View.extend({
-
   el: $("<div>"),
+  className: "character-create-view",
 
   template: _.template($("script.character[type='text/html'").html()),
 
@@ -16,7 +16,8 @@ var CharacterCreateView = Backbone.View.extend({
     this.$el.html(this.template());
   },
 
-  startGame: function() {
+  startGame: function(e) {
+    e.preventDefault();
     var name = this.$el.find("input[name='character-name']").val();
     // console.log(name);
     Backbone.history.navigate("startGame/" + name, {trigger: true});

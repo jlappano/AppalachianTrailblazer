@@ -21,18 +21,23 @@
 //= require_tree ./backbone/views
 //= require_self
 
-var adventures = new AdventurePromptList();
 
-adventures.fetch();
 
-var shelters = new ShelterList();
+$(function(){
+  window.location.hash = ""; // load page with no hash!
 
-shelters.fetch({success: function(){
-    shelters.each(function(shelter) {
-      shelter.set({adventureList: adventures});
-  }); 
-}});
+  var adventures = new AdventurePromptList();
 
-new Router(adventures, shelters);
-Backbone.history.start();
+  adventures.fetch();
 
+  var shelters = new ShelterList();
+
+  shelters.fetch({success: function(){
+      shelters.each(function(shelter) {
+        shelter.set({adventureList: adventures});
+    }); 
+  }});
+
+  new Router(adventures, shelters);
+  Backbone.history.start();
+});

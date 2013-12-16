@@ -1,12 +1,11 @@
 //model is player
 var AnswerViewYes = Backbone.View.extend({
-
-  el: $("<div>"),
+  className: "view-yes",
 
   template: _.template($("script.answerYes[type='text/html'").html()),
 
-  initialize: function(){
-    console.log(this.model);
+  initialize: function(options){
+    this.creator = options.creator;
     this.render();
   },
 
@@ -20,9 +19,14 @@ var AnswerViewYes = Backbone.View.extend({
   },
 
   moveOn: function() {
+    // remove the previous gameview
+    this.creator.remove();
+
     this.model.hikeTheTrail();
     this.$el.remove();
-    new GameView({model: this.model});
+    var gamie = new GameView({model: this.model});
+    $("body").append( gamie.el );
+    this.remove();
   }
 
 });
