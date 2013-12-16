@@ -23,31 +23,9 @@
 
 var adventures = new AdventurePromptList();
 
-adventures.add([
-
-      { question: "Do you drink the murky water?", 
-      answerYes: "You have dysentary!", 
-      answerNo: "Bear Grylls would be proud!", 
-      consequenceYes: -20,
-      consequenceNo: 10 },
-
-      { question: "Eat the yellow snow?", 
-      answerYes: "Mmmm tastes like lemon", 
-      answerNo: "You missed out man",
-      consequenceYes: 5,
-      consequenceNo: -5 },
-
-      { question: "You are tired. in town, A postal clerk directes you to the Hapiday Motor Inn, Do you stay at this establishment?",
-      answerYes: "Woo! Hot Water!",
-      answerNo: "Wake up with slugs on your face",
-      consequenceYes: 20,
-      consequenceNo: -10 }
-
-    ]);
+adventures.fetch();
 
 var shelters = new ShelterList();
-
-// latitude, longtitude, sequence, name, adventureList
 
 shelters.fetch({success: function(){
     shelters.each(function(shelter) {
@@ -55,12 +33,6 @@ shelters.fetch({success: function(){
   }); 
 }});
 
-// shelters.each(function(shelter) {
-//   shelter.set({adventureList: adventures});
-// });
-
 new Router(adventures, shelters);
 Backbone.history.start();
 
-
-// watchList.fetch({reset: true});
