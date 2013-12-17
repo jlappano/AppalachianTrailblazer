@@ -22,6 +22,8 @@ var Router = Backbone.Router.extend({
     console.log(name);
     var player = new Player({name: name, shelterList: this.shelters});
     player.setInitialShelter();
+    var map = new Map();
+    var mapView = new MapView({model: map});
     this.loadView(new GameView({model: player}));
   },
 

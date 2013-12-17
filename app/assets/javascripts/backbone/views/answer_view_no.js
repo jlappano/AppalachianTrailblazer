@@ -23,7 +23,6 @@ var AnswerViewNo = Backbone.View.extend({
     this.creator.remove();
 
     this.model.hikeTheTrail();
-    this.$el.remove();
     var gamie = new GameView({model: this.model});
     $("body").append( gamie.el );
     this.remove();

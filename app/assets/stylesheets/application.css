@@ -14,7 +14,7 @@
 
 body {
   text-align: center;
-  background-color: black;
+  background-color: rgba(0,0,0,0.9);
   color: white;
 }
 
@@ -22,3 +22,25 @@ body {
   border: 2px solid red;
   padding: 5px;
 }
+
+#map {
+  border: 2px solid blue;
+  height: 600px;
+  width: 430px;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  float: left;
+}
+
+/*#second-example {
+  height: 100%;
+  width: 430px;
+  margin: 0px;
+  padding: 0px;
+}
+
+#map-pic {
+  position: relative;
+  float: right;
+}*/

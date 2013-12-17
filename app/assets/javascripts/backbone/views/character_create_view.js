@@ -1,5 +1,4 @@
 var CharacterCreateView = Backbone.View.extend({
-  el: $("<div>"),
   className: "character-create-view",
 
   template: _.template($("script.character[type='text/html'").html()),
@@ -22,9 +21,5 @@ var CharacterCreateView = Backbone.View.extend({
     // console.log(name);
     Backbone.history.navigate("startGame/" + name, {trigger: true});
   },
-
-  //create player
-  //change the route
-
 
 });

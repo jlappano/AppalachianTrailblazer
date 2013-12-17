@@ -5,6 +5,7 @@ var AnswerViewYes = Backbone.View.extend({
   template: _.template($("script.answerYes[type='text/html'").html()),
 
   initialize: function(options){
+    //creator is the gameview that triggered this view
     this.creator = options.creator;
     this.render();
   },
@@ -23,8 +24,8 @@ var AnswerViewYes = Backbone.View.extend({
     this.creator.remove();
 
     this.model.hikeTheTrail();
-    this.$el.remove();
     var gamie = new GameView({model: this.model});
+    //append a new gameview and destroy the current view
     $("body").append( gamie.el );
     this.remove();
   }
