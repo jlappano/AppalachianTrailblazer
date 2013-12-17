@@ -2,7 +2,9 @@ var Router = Backbone.Router.extend({
   routes: {
     "": "index",
     "characterCreate": "characterCreate",
-    "startGame/:name": "startGame"
+    "startGame/:name": "startGame",
+    "gameLost": "gameLost",
+    "gameWon": "gameWon"
   },
 
   initialize: function(adventures, shelters) {
@@ -25,6 +27,14 @@ var Router = Backbone.Router.extend({
     var map = new Map();
     var mapView = new MapView({model: map, player: player});
     this.loadView(new GameView({model: player}));
+  },
+
+  gameWon: function() {
+    this.loadView(new GameWonView());
+  },
+
+  gameLost: function() {
+    this.loadView(new GameLostView());
   },
 
   loadView: function(view) {

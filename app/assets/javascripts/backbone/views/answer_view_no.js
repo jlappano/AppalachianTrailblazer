@@ -6,6 +6,10 @@ var AnswerViewNo = Backbone.View.extend({
 
   initialize: function(options){
     this.creator = options.creator;
+    // this.listenTo(this.model, 'change:won', function(){
+    //   this.creator.remove();
+    //   this.remove(); 
+    // });
     this.render();
   },
 
@@ -19,13 +23,19 @@ var AnswerViewNo = Backbone.View.extend({
   },
 
   moveOn: function() {
+    console.log(this.model.get("won"))
     // remove the previous gameview
-    this.creator.remove();
-
-    this.model.hikeTheTrail();
-    var gamie = new GameView({model: this.model});
-    $("body").append( gamie.el );
-    this.remove();
+    if(this.model.get("won") == ""){
+      this.creator.remove();
+      this.model.hikeTheTrail();
+      var gamie = new GameView({model: this.model});
+      $("body").append( gamie.el );
+      this.remove();
+    }
+    else {
+      this.creator.remove();
+      this.remove();
+    }
   }
 
 });

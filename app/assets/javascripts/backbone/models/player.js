@@ -10,14 +10,9 @@ var Player = Backbone.Model.extend({
     this.name = name;
     this.shelterList = shelterList;
     this.on("change:won", function(){
-      console.log('Something has changed.'); 
+      Backbone.history.navigate("/gameLost", {trigger: true}); 
     });
   },
-
-  onWonChanged: function () {
-    console.log("Won has changed!");
-  },
-
 
   setInitialShelter: function(){
     var trail = this.get("shelterList");
@@ -34,7 +29,6 @@ var Player = Backbone.Model.extend({
     }
     else{
       this.set({won: "You won"});
-      console.log(this.get("won"));
     }
   },
 
@@ -49,7 +43,6 @@ var Player = Backbone.Model.extend({
     else if(morale <= 0){
       morale = 0;
       this.set({won: "You lost"});
-      console.log(this.get("won"));
     }
     console.log(morale);
     this.set({morale: morale});

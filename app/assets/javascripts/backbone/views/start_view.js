@@ -1,6 +1,6 @@
 var StartView = Backbone.View.extend({
 
-  el: $("<div>"),
+  className: "start",
 
   initialize: function(){
     this.$el.append( $("<h3>Start Game?</h3>") );

@@ -20,14 +20,19 @@ var AnswerViewYes = Backbone.View.extend({
   },
 
   moveOn: function() {
-    // remove the previous gameview
-    this.creator.remove();
 
-    this.model.hikeTheTrail();
-    var gamie = new GameView({model: this.model});
-    //append a new gameview and destroy the current view
-    $("body").append( gamie.el );
-    this.remove();
+    // remove the previous gameview
+    if(this.model.get("won") == ""){
+      this.creator.remove();
+      this.model.hikeTheTrail();
+      var gamie = new GameView({model: this.model});
+      $("body").append( gamie.el );
+      this.remove();
+    }
+    else {
+      this.creator.remove();
+      this.remove();
+    }
   }
 
 });

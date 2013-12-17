@@ -19,7 +19,6 @@ var GameView = Backbone.View.extend({
   },
 
   renderAnswerYes: function(e) {
-    console.log("render yes fired");
     var adventure = this.model.get("shelter").get("adventurePrompt");
     this.$(".answer-buttons").remove();
     this.model.changeMorale(adventure.get("consequenceYes"));
@@ -27,7 +26,6 @@ var GameView = Backbone.View.extend({
   },
 
   renderAnswerNo: function(e) {
-    console.log("render no fired");
     var adventure = this.model.get("shelter").get("adventurePrompt");
     this.$(".answer-buttons").remove();
     this.model.changeMorale(adventure.get("consequenceNo"));
