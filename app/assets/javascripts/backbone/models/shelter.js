@@ -19,6 +19,3 @@ var Shelter = Backbone.Model.extend({
 
 });
 
-
-// var shelterTheFirst = new Shelter({ latitude: 555.55, longitude: 333.333, name: "Smoke House", sequence: 1 });
-

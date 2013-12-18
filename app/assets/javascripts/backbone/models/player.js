@@ -8,37 +8,35 @@ var Player = Backbone.Model.extend({
 
   initialize: function(name){
     this.name = name;
-    this.on("change:over", function(){
-      Backbone.history.navigate("/game-over/" + this.get("over"), {trigger: true}); 
-    });
   },
 
   setInitialShelter: function(){
+    console.log(this.get("shelter"));
+    var shelter = this.get("shelter");
+    console.log(TrailBlazerApp.shelters.models[0]);
     this.set({shelter: TrailBlazerApp.shelters.models[0]});
   },
 
   hikeTheTrail: function(){
-    var trail = TrailBlazerApp.shelters; //this.get("shelterList");
-    console.log(trail.length); //22
+    //changes player's shelter by increasing the index in 
+    var trail = TrailBlazerApp.shelters;
     var index = trail.indexOf(this.get("shelter"));
-    //don't check for win here
     this.set({shelter: trail.models[index + 1]});
   },
 
   checkWin: function(){
-    var trail = TrailBlazerApp.shelters; //this.get("shelterList");
+    var trail = TrailBlazerApp.shelters;
     var index = trail.indexOf(this.get("shelter"));
     if(index == 21){
       this.set({over: "win"});
     };
-    console.log(this.get("over"));
   },
 
   changeMorale: function(integer){
     var morale = this.get("morale");
 
     morale += integer;
-    //check for loss
+    //checks loss
     if(morale > 100){
       morale = 100;
     }
@@ -46,7 +44,7 @@ var Player = Backbone.Model.extend({
       morale = 0;
       this.set({over: "lose"});
     }
-    console.log("MORALE --> " + morale);
+    // console.log("MORALE --> " + morale);
     this.set({morale: morale});
   }
 });

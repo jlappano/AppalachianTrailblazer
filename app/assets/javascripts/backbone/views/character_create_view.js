@@ -1,9 +1,8 @@
 var CharacterCreateView = Backbone.View.extend({
   className: "view character-create-view",
 
-  template: _.template($("script.character[type='text/html'").html()),
-
   initialize: function(){
+    this.template = _.template($("script.character").html()),
     this.render();
   },
   render: function() {
@@ -19,8 +18,8 @@ var CharacterCreateView = Backbone.View.extend({
 
     // set player name and initialize
     var name = this.$el.find("input[name='character-name']").val();
-    var player = new Player({name: name});
-    TrailBlazerApp.player = player;
+    
+    TrailBlazerApp.player.set("name", name);
     TrailBlazerApp.player.setInitialShelter();
 
     var map = new Map();

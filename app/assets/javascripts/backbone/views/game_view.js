@@ -2,9 +2,8 @@
 var GameView = Backbone.View.extend({
   className: "view game-view",
 
-  template: _.template($("script.game[type='text/html'").html()),
-
   initialize: function() {
+    this.template = _.template($("script.game").html());
     var shelter = this.model.get("shelter");
     shelter.getAdventurePrompt();
     this.render();

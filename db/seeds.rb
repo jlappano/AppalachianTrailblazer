@@ -21,14 +21,14 @@ Shelter.create(sequence: 6, lat: 36.6832923, long: -81.5110583, name: "Old Orcha
 Shelter.create(sequence: 5, lat: 36.1721768, long: -82.0111785, name: "Apple House")
 Shelter.create(sequence: 4, lat: 36.0565607, long: -82.6572202, name: "Jerry Cabin")
 Shelter.create(sequence: 3, lat: 35.6297885, long: -83.3862811, name: "Icewater Spring")
-Shelter.create(sequence: 2, lat: 35.0915531, long: -83.5229901, name: "Rock Gap Shelter")
+Shelter.create(sequence: 2, lat: 35.0915531, long: -83.5229901, name: "Rock Gap")
 Shelter.create(sequence: 1, lat: 34.6292728, long: -84.192975, name: "Springer Mountain")
 
 
 #question, answerYes, answerNo, consequenceYes, consequenceNo
 Adventure.create(question: "Your money is running low, but a Dairy Queen is ahead in town! How about some cheeseburgers?", answerYes: "All the happy families fill you with ennui; your cheeseburger tastes like loneliness.", answerNo: "You find some wild strawberries and a butterfly lands on your hand", consequenceYes: -20, consequenceNo: 5)
 Adventure.create(question: "Your pal offers you some water… take it?", answerYes: "What? Untreated from a stream? You've caught dysentary", answerNo: "Your friend gets sick from their own water and you help her to the next shelter", consequenceYes: -30, consequenceNo: -5)
-Adventure.create(question: "A river with no bridge up ahead, what adventure! Forge ahead here, or try and find a better spot to cross?", answerYes: "Oh wow, it didn't look that deep before, oh well… here we… oops… HALP!", answerNo: "You spot some sandbars upriver and get some sweet pics on the other side", consequenceYes: -25, consequenceNo: 20)
+Adventure.create(question: "A river with no bridge up ahead, what adventure! Forge ahead here?", answerYes: "Oh wow, it didn't look that deep before, oh well… here we… oops… HALP!", answerNo: "You spot some sandbars upriver and get some sweet pics on the other side", consequenceYes: -25, consequenceNo: 20)
 Adventure.create(question: "You are tired. in town, A postal clerk directes you to the Hapiday Motor Inn, Do you stay at this establishment?", answerYes: "Woo! Hot Water!", answerNo: "Wake up with slugs on your face", consequenceYes: 10, consequenceNo: -10)
 #Adventure.create(question: "", answerYes: "", answerNo: "", consequenceYes: , consequenceNo: )
 #Adventure.create(question: "", answerYes: "", answerNo: "", consequenceYes: , consequenceNo: )

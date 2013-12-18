@@ -6,7 +6,7 @@ var Map = Backbone.Model.extend({
   },
 
   initialize: function(){
-
+//plots coordinates for Polyline
     this.shelterCoordinates = [
       new google.maps.LatLng(34.62673, -84.193656),
       new google.maps.LatLng(34.7398, -83.9369),
@@ -62,9 +62,5 @@ var Map = Backbone.Model.extend({
       new google.maps.LatLng(45.554633, -69.246405), 
       new google.maps.LatLng(45.8815981, -68.995052)  
     ];
-
   },
-
 });
-
-// var map = new Map();

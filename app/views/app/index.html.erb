@@ -1,23 +1,49 @@
 <div class='welcome'>
 
+<!-- class name  view start-view-->
+<script type="text/html" class="start">
+  <header>
+  <div class="content">
+    <hgroup>
+      <h1>Hello.</h1>
+      <h2>Welcome To The Appalachian Trail Blazer</h2>
+    </hgroup>
+  </div>
+  </header>
+  <section class="site">
+    <p class="blurb">The Appalachian Trail is approximately 2,200 miles and traverses fourteen states. It takes fortitidue to be a tru-hiker, see if you can reach the end.</p>
+    <p>Start Game?</p>
+    <button>HECK YEA</button>
+  </section>
+</script>
+
 <script type="text/html" class="character">
-  <h2>Create Character</h2>
+  <header>
+    <hgroup>
+      <h1>Hello.</h1>
+      <h2>Welcome To The Appalachian Trail Blazer</h2>
+    </hgroup>
+  </header>
+  <section class="site">
+  <h3>Pick a Trail Name</h3>
     <br />
     <form>
       <input name="character-name" placeholder="Rusty Bucket"></input>
       <br />
       <button class="submit">Create</button>
     </form>
+  </section>
 </script>
 
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-
 <script type="text/html" class="game">
+  <header>
+    <hgroup>
+      Hello <%%= this.model.get("name") %>! You are at the 
+      <br />
+      <%%= this.model.get("shelter").get("name") %> shelter.
+    </hgroup>
+  </header>
   <p>
-    Hello <%%= this.model.get("name") %>! You are at the 
-      <br />
-    <%%= this.model.get("shelter").get("name") %> shelter.
-      <br />
     Your Morale is <%%= this.model.get("morale")%> out of 100.
       <br />
     <%%= this.model.get("shelter").get("adventurePrompt").get("question") %>

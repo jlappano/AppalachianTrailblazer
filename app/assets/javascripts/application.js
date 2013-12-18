@@ -12,10 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require underscore
 //= require backbone
 //= require backbone.debug
+//= require google_api
 //= require backbone/app
 //= require_tree ./backbone/routers
 //= require_tree ./backbone/models
@@ -37,7 +37,8 @@ $(function(){
       shelters.each(function(shelter) {
         shelter.set({adventureList: adventures});
     }); 
-  }});
+  }
+});
 
   //Backbone.debug.on();
 

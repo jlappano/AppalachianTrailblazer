@@ -2,7 +2,7 @@
 // var AnswerViewNo = Backbone.View.extend({
 //   className: "view no-view",
 
-//   template: _.template($("script.answerNo[type='text/html'").html()),
+//   template: _.template($("script.answerNo[type='text/html']").html()),
 
 //   initialize: function(options){
 //     this.creator = options.creator;

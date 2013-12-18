@@ -13,20 +13,19 @@
  */
 
 html, body {
-  width: 100%;
+  padding: 0;
+  margin: 0;
   height: 100%;
   text-align: center;
-  background: #b3cae5; /* Old browsers */
-  background: -moz-linear-gradient(top, #b3cae5, 12%, #dbdde4, 46%, #e4e3e4, 70%, #f7ddbb, 94%, #efcab2, 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b3cae5), color-stop(50%,#dbdde4), color-stop(70%,#e4e3e4), color-stop(100%,#f7ddbb)); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #b3cae5, 12%, #dbdde4, 46%, #e4e3e4, 70%, #f7ddbb, 94%, #efcab2, 100%); /* Chrome10+,Safari5.1+ */
-  border: 2px solid black;
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
   color: rgba(0, 0, 0, 0.8);
-  margin: 0;
-  padding: 0;
-  font-family: ‘Arial Narrow’, sans-serif;
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
   font-weight: 100;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizelegibility;
+  background-color: #F0ECDD;
+}
+
 }
 
 .view {
@@ -34,9 +33,51 @@ html, body {
   border-width: 2px;
   border-style: solid;
 }
-.start-view {
-  border-color: green;
+
+.start-view hgroup{
+/*  display: inline-block;*/
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  color: black;
+  padding: .5em 3em;
 }
+
+header{
+  height: 100%;
+  display: block;
+  overflow: hidden;
+  background: #b3cae5; /* Old browsers */
+  background: -moz-linear-gradient(top, #b3cae5, 12%, #dbdde4, 46%, #e4e3e4, 70%, #f7ddbb, 94%, #efcab2, 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b3cae5), color-stop(50%,#dbdde4), color-stop(70%,#e4e3e4), color-stop(100%,#f7ddbb)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #b3cae5, 12%, #dbdde4, 46%, #e4e3e4, 70%, #f7ddbb, 94%, #efcab2, 100%); /* Chrome10+,Safari5.1+ */
+/*  border: 2px solid black;*/
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
+  background-size: cover;
+  border: 2px solid black;
+}
+
+.site {
+    padding: 50px;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 1;
+    text-align: center;
+}
+
+input {
+  padding: 8px;
+  margin: 20px;
+}
+
+.start-view .blurb{
+  margin: 0 auto;
+  font-weight: bold;
+  max-width: 600px;
+  text-align: center;
+
+}
+
+
 .game-view {
   border-color: red;
 }
@@ -91,15 +132,3 @@ button:hover {
   background: #0b988c;
 }
 
-
-/*#second-example {
-  height: 100%;
-  width: 430px;
-  margin: 0px;
-  padding: 0px;
-}
-
-#map-pic {
-  position: relative;
-  float: right;
-}*/

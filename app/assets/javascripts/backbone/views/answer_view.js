@@ -9,7 +9,7 @@ var AnswerView = Backbone.View.extend({
     //creator is the gameview that triggered this view
     this.creator = options.creator;
     
-    this.template = _.template($("script.answer-"+ answer +"[type='text/html'").html());
+    this.template = _.template($("script.answer-"+ answer).html());
     this.render();
   },
   render: function() {

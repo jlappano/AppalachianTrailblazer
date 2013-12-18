@@ -1,12 +1,22 @@
+
+
+
 describe("Player", function(){
 
-  var player, shelter, trail;
+  var player, shelter, trail, TrailBlazerApp;
 
   beforeEach(function() {
-    trail = new ShelterList(new Shelter({sequence:1}));
-    player = new Player({ name: "Beans", shelterList: trail});
+    TrailBlazerApp = {};
+    TrailBlazerApp.shelters = new ShelterList();
+    TrailBlazerApp.player = new Player({ name: "Beans"});
     shelter = new Shelter({ latitude: 555.55, longitude: 333.333, name: "Smoke House", sequence: 1 });
+    TrailBlazerApp.shelters.add(shelter);
 
+    player = TrailBlazerApp.player;
+    trail = TrailBlazerApp.shelters;
+
+    Player.prototype.setInitialShelter = function (){ 
+      this.set({shelter: TrailBlazerApp.shelters.models[0]}); }
   });
 
   it('Will set passed attributes on the model instance when created.', function() { 
@@ -17,10 +27,19 @@ describe("Player", function(){
     expect(player.get('morale')).toBe(100);
   });
 
-  it('Will be created with a shelter with a sequence of one.', function() {
+
+  it('should spy on an instance method of a Player', function(){ 
+    spyOn(player, 'setInitialShelter'); 
     player.setInitialShelter();
-    expect(player.get('shelter').get('sequence')).toBe(1);
-  });
+
+    expect(player.setInitialShelter).toHaveBeenCalled(); 
+    console.log(player.get("shelter"));
+    expect(player.get("shelter").get("sequence")).toBe(1);
+ });
+
+
+    
+
 
   it('Can change shelters sequentially.', function() {
 
@@ -29,8 +48,12 @@ describe("Player", function(){
       {sequence: 3}
     ]);
 
-     player.setInitialShelter();
-     player.hikeTheTrail();
+     TrailBlazerApp.player.setInitialShelter();
+     // console.log(player.get("shelter"));
+     TrailBlazerApp.player.hikeTheTrail();
+     console.log(TrailBlazerApp.shelters.models);
+
+     // console.log(player.get("shelter"));
      expect(player.get('shelter').get('sequence')).toBe(2);
   });
 
@@ -45,11 +68,43 @@ describe("Player", function(){
   });
 
   it('checks to see if morale is zero', function() {
-    player.changeMorale(-140);
-    expect(player.get('won')).toBe(false);
-
+    TrailBlazerApp.player.changeMorale(-140);
+    console.log(player.get('over'));
+    expect(player.get('over')).toBe("lose");
   });
 
+  it('checks to to see if the player has won', function() {
 
+    trail.add([
+      {sequence: 4},
+      {sequence: 5},
+      {sequence: 6},
+      {sequence: 7},
+      {sequence: 8},
+      {sequence: 9},
+      {sequence: 10},
+      {sequence: 11},
+      {sequence: 12},
+      {sequence: 13},
+      {sequence: 14},
+      {sequence: 15},
+      {sequence: 16},
+      {sequence: 17},
+      {sequence: 18},
+      {sequence: 19},
+      {sequence: 20},
+      {sequence: 21},
+      {sequence: 22}
+    ]);
 
+    TrailBlazerApp.player.setInitialShelter();
+
+    for (var i = 0; i < 21; i++) {
+      TrailBlazerApp.player.hikeTheTrail();
+    };
+
+    TrailBlazerApp.player.checkWin();
+    console.log(player);
+    expect(player.get('over')).toBe("win");
+  })
 })

@@ -16,6 +16,7 @@ var MapView = Backbone.View.extend({
       strokeOpacity: 0.5,
       strokeWeight: 2
     });
+    
     this.path.setMap(this.map);
 
     // set up listeners to changing model

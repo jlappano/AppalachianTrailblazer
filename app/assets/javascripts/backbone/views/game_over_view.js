@@ -4,9 +4,9 @@ var GameOverView = Backbone.View.extend({
   initialize: function(options) {
     console.log("game over init: " + options.over);
     if (options.over == "win") {
-      this.template = _.template($("script.gameWon[type='text/html'").html());  
+      this.template = _.template($("script.gameWon").html());  
     } else {
-      this.template = _.template($("script.gameLost[type='text/html'").html());
+      this.template = _.template($("script.gameLost").html());
     }
     this.render();
   },

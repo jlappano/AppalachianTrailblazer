@@ -2,12 +2,12 @@ var StartView = Backbone.View.extend({
   className: "view start-view",
 
   initialize: function(){
+    this.template = _.template($("script.start").html()),
     this.render();
   },
+  
   render: function(){
-    this.$el.append( $("<h1>Welcome to the Appalachian Trail Blazer!</h1>") );
-    this.$el.append( $("<h3>Start Game?</h3>") );
-    this.$el.append( $("<button>HECK YEAAAAAAAA</button>") );
+    this.$el.html(this.template());
   },
 
   events: {
