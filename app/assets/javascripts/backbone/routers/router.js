@@ -1,18 +1,19 @@
 var Router = Backbone.Router.extend({
   routes: {
-    "": "index",
-    "characterCreate": "characterCreate",
-    "startGame/:name": "startGame",
-    "gameLost": "gameLost",
-    "gameWon": "gameWon"
+    "":                "index",
+    "character":       "characterCreate",
+    "shelter/:number": "arriveShelter",
+    "game-over/:over": "gameOver"
   },
 
   initialize: function(adventures, shelters) {
-    this.adventures = adventures;
-    this.shelters = shelters;
+    console.log("init!");
+    TrailBlazerApp.adventures = adventures;
+    TrailBlazerApp.shelters = shelters;
   },
 
   index: function() {
+    console.log("loaded index!")
     this.loadView(new StartView());
   },
 
@@ -20,21 +21,19 @@ var Router = Backbone.Router.extend({
     this.loadView(new CharacterCreateView());
   },
 
-  startGame: function(name) {
-    console.log(name);
-    var player = new Player({name: name, shelterList: this.shelters});
-    player.setInitialShelter();
-    var map = new Map();
-    var mapView = new MapView({model: map, player: player});
-    this.loadView(new GameView({model: player}));
+  arriveShelter: function(number) {
+    if (number == 1) {
+      new MapView({model: TrailBlazerApp.map, player: TrailBlazerApp.player});
+    }
+    
+    console.log("arrive at shelter: " + number);
+    console.log(TrailBlazerApp.player);
+
+    this.loadView(new GameView({model: TrailBlazerApp.player}));
   },
 
-  gameWon: function() {
-    this.loadView(new GameWonView());
-  },
-
-  gameLost: function() {
-    this.loadView(new GameLostView());
+  gameOver: function(over) {
+    this.loadView(new GameOverView({over: over}));
   },
 
   loadView: function(view) {

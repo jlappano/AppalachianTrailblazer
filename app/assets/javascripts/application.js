@@ -15,29 +15,33 @@
 //= require turbolinks
 //= require underscore
 //= require backbone
+//= require backbone.debug
+//= require backbone/app
 //= require_tree ./backbone/routers
 //= require_tree ./backbone/models
 //= require_tree ./backbone/collections
 //= require_tree ./backbone/views
 //= require_self
 
-
-
 $(function(){
   window.location.hash = ""; // load page with no hash!
 
-  var adventures = new AdventurePromptList();
+  Backbone.debug.off();
 
+  // get the adventures and shelters in the database!
+  var adventures = new AdventurePromptList();
   adventures.fetch();
 
   var shelters = new ShelterList();
-
   shelters.fetch({success: function(){
       shelters.each(function(shelter) {
         shelter.set({adventureList: adventures});
     }); 
   }});
 
+  //Backbone.debug.on();
+
+  // instantiate the router and begin navigating!
   new Router(adventures, shelters);
   Backbone.history.start();
 });

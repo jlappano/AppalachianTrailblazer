@@ -1,7 +1,5 @@
 <div class='welcome'>
 
-<h1>Welcome to the Appalachian Trail Blazer!</h1>
-
 <script type="text/html" class="character">
   <h2>Create Character</h2>
     <br />
@@ -25,12 +23,12 @@
     <%%= this.model.get("shelter").get("adventurePrompt").get("question") %>
       <br />
     <div class="answer-buttons">
-      <button class="yes">Yes</button> <button class="no">No</button>
+      <button name="yes">Yes</button> <button name="no">No</button>
     </div>
   </p>
 </script>
 
-<script type="text/html" class="answerYes">
+<script type="text/html" class="answer-yes">
   <p>
     <%% var adventure = this.model.get("shelter").get("adventurePrompt")%>
     <%%= adventure.get("answerYes")%>
@@ -48,7 +46,7 @@
   </p>
 </script>
 
-<script type="text/html" class="answerNo">
+<script type="text/html" class="answer-no">
   <p>
     <%% var adventure = this.model.get("shelter").get("adventurePrompt")%>
     <%%= adventure.get("answerNo")%>
@@ -67,11 +65,20 @@
 </script>
 
 <script type="text/html" class="gameLost">
-  <p>testing game lost</p>
+  <p>Morale is zero; time to call Mom and Dad and go home</p>
+  <img id='minivan' src="http://www.metroparent.com/Blogs/Views-on-the-News/February-2013/Are-Crossovers-Replacing-Minivans-for-Moms/MinivanKissOffIntheNewsBlog.jpg"> 
+  <div class="restart">
+      <button class="restart">Play Again?</button>
+  </div>
 </script>
 
 <script type="text/html" class="gameWon">
-  <p>testing game won</p>
+  <div class="gameWon">
+    <p>You got to the end! enjoy the view!</p>
+    <div class="restart">
+        <button class="restart">Play Again?</button>
+    </div>
+  </div>
 </script>
 
 </div>

@@ -7,7 +7,7 @@ var Map = Backbone.Model.extend({
 
   initialize: function(){
 
-    this.flightPlanCoordinates = [
+    this.shelterCoordinates = [
       new google.maps.LatLng(34.62673, -84.193656),
       new google.maps.LatLng(34.7398, -83.9369),
       new google.maps.LatLng(35.035482, -83.537977),
