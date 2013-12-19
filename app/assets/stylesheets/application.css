@@ -133,6 +133,7 @@ div.text-wrapper {
   font-weight: bold;
   max-width: 350px;
   line-height: 2em;
+ /* border: 2px solid red;*/
 
 }
 
@@ -145,12 +146,13 @@ div.adventure {
 }
 
 div.consequence {
-  padding: 10px;
+  padding-top: 5px;
   position: relative;
   top: -220px;
   width: 40%;
   left: 55%;
   text-align: center;
+/*  border: 2px solid green;*/
 
 
 }
