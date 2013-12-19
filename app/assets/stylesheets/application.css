@@ -17,13 +17,13 @@ html, body {
   margin: 0;
   height: 100%;
   text-align: center;
-  color: rgba(0, 0, 0, 0.8);
-  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
   font-weight: 100;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizelegibility;
-  background-color: #F0ECDD;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #F5F5F5;
 }
 
 }
@@ -59,9 +59,14 @@ header{
   background-size: cover;
   border: 2px solid black;
   text-align: center;
+  font-family: "Calisto MT", "Bookman Old Style", Bookman, "Goudy Old Style", Garamond, "Hoefler Text", "Bitstream Charter", Georgia, serif;
+  color: rgba(0, 0, 0, 0.5);
 }
 header p {
   margin-top: 40px;
+  
+  font-size: 1.8em;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 input {
@@ -125,24 +130,26 @@ div.gameWon {
 }
 
 div.text-wrapper {
+  font-weight: bold;
   max-width: 350px;
+  line-height: 2em;
 
 }
 
 div.adventure {
   float: right;
   position: relative;
-  top: -300px;
+  top: -350px;
   width: 45%;
 
 }
 
 div.consequence {
-  padding: 25px;
+  padding: 10px;
   position: relative;
   top: -220px;
   width: 40%;
-  left: 53%;
+  left: 55%;
   text-align: center;
 
 
