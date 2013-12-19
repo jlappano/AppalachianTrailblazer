@@ -21,4 +21,4 @@ describe("AdventurePrompt", function(){
     expect(adventure.get('answerYes')).toBe("You have dysentary!");
 
   });
-})
+});

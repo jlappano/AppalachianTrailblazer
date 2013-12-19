@@ -29,7 +29,7 @@ html, body {
 .view {
   padding: 5px;
   border-width: 2px;
-  border-style: solid;
+/*  border-style: solid;*/
 }
 
 .start-view hgroup{
@@ -42,6 +42,7 @@ html, body {
 }
 
 header{
+  margin-left: -5px;
   position: absolute;
   width: 100%;
   top: 0;
@@ -62,7 +63,6 @@ header{
 }
 header p {
   margin-top: 40px;
-  
   font-size: 1.8em;
   color: rgba(0, 0, 0, 0.5);
 }
@@ -80,7 +80,7 @@ input {
 
 }
 
-
+/*
 .game-view {
   border-color: red;
 }
@@ -92,15 +92,24 @@ input {
 }
 .character-create-view {
   border-color: orange;
-}
-.game-lost-view {
-  border-color: pink;
-}
-.map-view {
-  border-color: yellow;
+}*/
+
+.gameLost {
+  margin: 0 auto;
+  font-size: 2em;
+  padding: 20px;  
 }
 
+/*.map-view {
+  border-color: yellow;
+}*/
+
 div.gameWon {
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.5);
+  margin: 0 auto;
+  font-size: 2em;
+  padding: 20px;
   width: 100%;
   height: 900px;
   background-image: url(http://blog.appalachiantrials.com/wp-content/uploads/2013/12/Mount_Katahdin.jpg)
@@ -151,7 +160,6 @@ div.consequence {
   left: 55%;
   text-align: center;
 /*  border: 2px solid green;*/
-
 
 }
 

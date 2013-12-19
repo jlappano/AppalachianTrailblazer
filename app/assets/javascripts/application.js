@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require underscore
 //= require backbone
-//= require backbone.debug
 //= require google_api
 //= require backbone/app
 //= require_tree ./backbone/routers
@@ -24,23 +23,20 @@
 //= require_self
 
 $(function(){
-  // window.location.hash = ""; // load page with no hash!
 
-  // Backbone.debug.off();
 
   // get the adventures and shelters in the database!
   var adventures = new AdventurePromptList();
   adventures.fetch();
 
   var shelters = new ShelterList();
-  shelters.fetch({success: function(){
+  shelters.fetch({
+    success: function(){
       shelters.each(function(shelter) {
         shelter.set({adventureList: adventures});
-    }); 
-  }
-});
-
-  //Backbone.debug.on();
+      });
+    }
+  });
 
   // instantiate the router and begin navigating!
   new Router(adventures, shelters);
