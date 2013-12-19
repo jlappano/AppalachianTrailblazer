@@ -10,7 +10,7 @@ var Router = Backbone.Router.extend({
     console.log("init!");
     TrailBlazerApp.adventures = adventures;
     TrailBlazerApp.shelters = shelters;
-    TrailBlazerApp.player = new Player();
+    TrailBlazerApp.player = new Player({trail: shelters});
 
     this.listenTo(TrailBlazerApp.player, "change:over", function (player){
       Backbone.history.navigate("/game-over/" + player.get("over"), {trigger: true}); 

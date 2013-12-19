@@ -44,7 +44,10 @@ html, body {
 }
 
 header{
-  height: 100%;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  height: 150px;
   display: block;
   overflow: hidden;
   background: #b3cae5; /* Old browsers */
@@ -55,13 +58,10 @@ header{
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
   background-size: cover;
   border: 2px solid black;
+  text-align: center;
 }
-
-.site {
-    padding: 50px;
-    top: 0; left: 0; right: 0; bottom: 0;
-    z-index: 1;
-    text-align: center;
+header p {
+  margin-top: 40px;
 }
 
 input {
@@ -104,12 +104,48 @@ div.gameWon {
 }
 
 #map {
+  position: relative;
+  top: 150px;
+  /*display: inline-block;*/
   height: 80%;
-  width: 430px;
+  width: 40%;
   margin: 0px;
   padding: 0px;
+  clear: both;
+/*  position: relative;
+  float: left;*/
+}
+
+.site {
   position: relative;
-  float: left;
+  display: inline-block;
+  top: 200px;
+  width: 60%;
+  text-align: center;
+}
+
+div.text-wrapper {
+  max-width: 350px;
+
+}
+
+div.adventure {
+  float: right;
+  position: relative;
+  top: -300px;
+  width: 45%;
+
+}
+
+div.consequence {
+  padding: 25px;
+  position: relative;
+  top: -220px;
+  width: 40%;
+  left: 53%;
+  text-align: center;
+
+
 }
 
 #minivan {
@@ -117,6 +153,7 @@ div.gameWon {
 }
 
 button {
+  margin: 5px;
   width: 9.45em;
   height: 3.15em;
   background: #18a397;  

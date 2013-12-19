@@ -6,17 +6,9 @@ describe("Player", function(){
   var player, shelter, trail, TrailBlazerApp;
 
   beforeEach(function() {
-    TrailBlazerApp = {};
-    TrailBlazerApp.shelters = new ShelterList();
-    TrailBlazerApp.player = new Player({ name: "Beans"});
-    shelter = new Shelter({ latitude: 555.55, longitude: 333.333, name: "Smoke House", sequence: 1 });
-    TrailBlazerApp.shelters.add(shelter);
-
-    player = TrailBlazerApp.player;
-    trail = TrailBlazerApp.shelters;
-
-    Player.prototype.setInitialShelter = function (){ 
-      this.set({shelter: TrailBlazerApp.shelters.models[0]}); }
+    shelter = jasmine.createSpyObj('shelter', ['get']);
+    trail = { first: function(){ return shelter } };
+    player = new Player({ trail: trail});
   });
 
   it('Will set passed attributes on the model instance when created.', function() { 
@@ -27,19 +19,10 @@ describe("Player", function(){
     expect(player.get('morale')).toBe(100);
   });
 
-
-  it('should spy on an instance method of a Player', function(){ 
-    spyOn(player, 'setInitialShelter'); 
+  it('Will be created with a shelter with a sequence of one.', function() {
     player.setInitialShelter();
-
-    expect(player.setInitialShelter).toHaveBeenCalled(); 
-    console.log(player.get("shelter"));
-    expect(player.get("shelter").get("sequence")).toBe(1);
- });
-
-
-    
-
+    expect(player.get("shelter")).toBe(shelter);
+  });
 
   it('Can change shelters sequentially.', function() {
 

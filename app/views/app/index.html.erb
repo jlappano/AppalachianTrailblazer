@@ -38,12 +38,13 @@
 <script type="text/html" class="game">
   <header>
     <hgroup>
-      Hello <%%= this.model.get("name") %>! You are at the 
+      <p>Hello <%%= this.model.get("name") %>! You are at the 
       <br />
-      <%%= this.model.get("shelter").get("name") %> shelter.
+      <%%= this.model.get("shelter").get("name") %> shelter.</p>
     </hgroup>
   </header>
-  <p>
+  <div class="adventure">
+    <div class="text-wrapper">
     Your Morale is <%%= this.model.get("morale")%> out of 100.
       <br />
     <%%= this.model.get("shelter").get("adventurePrompt").get("question") %>
@@ -51,11 +52,13 @@
     <div class="answer-buttons">
       <button name="yes">Yes</button> <button name="no">No</button>
     </div>
-  </p>
+    </div>
+  </div>
 </script>
 
 <script type="text/html" class="answer-yes">
-  <p>
+  <div class="consequence">
+    <div class="text-wrapper">
     <%% var adventure = this.model.get("shelter").get("adventurePrompt")%>
     <%%= adventure.get("answerYes")%>
       <br />
@@ -69,11 +72,13 @@
     <div class="next">
       <button class="next">Onwards</button>
     </div>
-  </p>
+    </div>
+  </div>
 </script>
 
 <script type="text/html" class="answer-no">
-  <p>
+  <div class="consequence">
+    <div class="text-wrapper">
     <%% var adventure = this.model.get("shelter").get("adventurePrompt")%>
     <%%= adventure.get("answerNo")%>
       <br />
@@ -87,7 +92,8 @@
     <div class="next">
       <button class="next">Onwards</button>
     </div>
-  </p>
+    </div>
+  </div>
 </script>
 
 <script type="text/html" class="gameLost">

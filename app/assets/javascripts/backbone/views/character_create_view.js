@@ -18,8 +18,10 @@ var CharacterCreateView = Backbone.View.extend({
 
     // set player name and initialize
     var name = this.$el.find("input[name='character-name']").val();
+
+    // answer: answer
     
-    TrailBlazerApp.player.set("name", name);
+    TrailBlazerApp.player.set("name", name);   
     TrailBlazerApp.player.setInitialShelter();
 
     var map = new Map();
