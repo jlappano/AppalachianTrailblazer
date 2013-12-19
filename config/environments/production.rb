@@ -1,10 +1,3 @@
-class NoCompression
-   def compress(string)
-       # do nothing
-       string
-   end
-end
-
 TrailBlazer::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -18,8 +11,8 @@ TrailBlazer::Application.configure do
   config.eager_load = true
 
   # Full error reports are disabled and caching is turned on.
-  config.consider_all_requests_local       = true
-  config.action_controller.perform_caching = false
+  config.consider_all_requests_local       = false
+  config.action_controller.perform_caching = true
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
   # Add `rack-cache` to your Gemfile before enabling this.
@@ -30,12 +23,11 @@ TrailBlazer::Application.configure do
   config.serve_static_assets = false
 
   # Compress JavaScripts and CSS.
-  config.assets.js_compressor = NoCompression.new
-
+  config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = true
+  config.assets.compile = false
 
   # Generate digests for assets URLs.
   config.assets.digest = true
