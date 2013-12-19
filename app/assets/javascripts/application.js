@@ -24,9 +24,9 @@
 //= require_self
 
 $(function(){
-  window.location.hash = ""; // load page with no hash!
+  // window.location.hash = ""; // load page with no hash!
 
-  Backbone.debug.off();
+  // Backbone.debug.off();
 
   // get the adventures and shelters in the database!
   var adventures = new AdventurePromptList();
