@@ -2,14 +2,14 @@
 <html>
 <head>
   <title>TrailBlazer</title>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBl2bJ7tGHzHEz_7o4nNl_rXKitL4xpMEQ&sensor=false"></script>
+  <%= javascript_include_tag "application" %>
+
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
 <%= yield %>
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?v=3&sensor=false&callback=initialize">
-</script>
-<%= javascript_include_tag "application" %>
 </body>
 </html>

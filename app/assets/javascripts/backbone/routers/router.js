@@ -7,7 +7,6 @@ var Router = Backbone.Router.extend({
   },
 
   initialize: function(adventures, shelters) {
-    console.log("init!");
     TrailBlazerApp.adventures = adventures;
     TrailBlazerApp.shelters = shelters;
     TrailBlazerApp.player = new Player({trail: shelters});
@@ -18,7 +17,6 @@ var Router = Backbone.Router.extend({
   },
 
   index: function() {
-    console.log("loaded index!")
     this.loadView(new StartView());
   },
 
@@ -31,8 +29,6 @@ var Router = Backbone.Router.extend({
       new MapView({model: TrailBlazerApp.map, player: TrailBlazerApp.player});
     }
     
-    console.log("arrive at shelter: " + number);
-    console.log(TrailBlazerApp.player);
 
     this.loadView(new GameView({model: TrailBlazerApp.player}));
   },

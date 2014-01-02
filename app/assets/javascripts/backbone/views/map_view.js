@@ -3,6 +3,7 @@ var MapView = Backbone.View.extend({
   className: "view map-view",
 
   initialize: function(options){
+    console.log("map view loaded");
     this.player = options.player;
     this.icon =   'http://www.marcellusgas.org/images/gmap/beachflag.png';
     this.map =    new google.maps.Map(this.el, this.model.attributes);
