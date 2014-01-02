@@ -34,16 +34,7 @@ html, body {
   border-style: solid;
 }
 
-.start-view hgroup{
-/*  display: inline-block;*/
-  text-align: center;
-  top: 50%;
-  left: 50%;
-  color: black;
-  padding: .5em 3em;
-}
-
-header{
+.start-view hgroup, header{
   position: absolute;
   width: 100%;
   top: 0;
@@ -60,7 +51,7 @@ header{
   border: 2px solid black;
   text-align: center;
   font-family: "Calisto MT", "Bookman Old Style", Bookman, "Goudy Old Style", Garamond, "Hoefler Text", "Bitstream Charter", Georgia, serif;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.7);
 }
 header p {
   margin-top: 40px;
@@ -82,7 +73,7 @@ input {
 
 }
 
-
+/*
 .game-view {
   border-color: red;
 }
@@ -94,15 +85,24 @@ input {
 }
 .character-create-view {
   border-color: orange;
-}
-.game-lost-view {
-  border-color: pink;
-}
-.map-view {
-  border-color: yellow;
+}*/
+
+.gameLost {
+  margin: 0 auto;
+  font-size: 2em;
+  padding: 20px;  
 }
 
+/*.map-view {
+  border-color: yellow;
+}*/
+
 div.gameWon {
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.5);
+  margin: 0 auto;
+  font-size: 2em;
+  padding: 20px;
   width: 100%;
   height: 900px;
   background-image: url(http://blog.appalachiantrials.com/wp-content/uploads/2013/12/Mount_Katahdin.jpg)
@@ -145,7 +145,7 @@ div.adventure {
 }
 
 div.consequence {
-  padding: 10px;
+  padding-top: 20px;
   position: relative;
   top: -220px;
   width: 40%;
