@@ -29,9 +29,15 @@ Shelter.create(sequence: 1, lat: 34.6292728, long: -84.192975, name: "Springer M
 Adventure.create(question: "Your money is running low, but a Dairy Queen is ahead in town! How about some cheeseburgers?", answerYes: "All the happy families fill you with ennui; your cheeseburger tastes like loneliness.", answerNo: "You find some wild strawberries and a butterfly lands on your hand", consequenceYes: -20, consequenceNo: 5)
 Adventure.create(question: "Your pal offers you some water… take it?", answerYes: "What? Untreated from a stream? You've caught dysentary", answerNo: "Your friend gets sick from their own water and you help her to the next shelter", consequenceYes: -30, consequenceNo: -5)
 Adventure.create(question: "A river with no bridge up ahead, what adventure! Forge ahead here?", answerYes: "Oh wow, it didn't look that deep before, oh well… here we… oops… HALP!", answerNo: "You spot some sandbars upriver and get some sweet pics on the other side", consequenceYes: -25, consequenceNo: 20)
+<<<<<<< HEAD
 Adventure.create(question: "You are tired. In town, a postal clerk directes you to the Hapiday Motor Inn, do you stay at this establishment?", answerYes: "Woo! Hot Water!", answerNo: "Wake up with slugs on your face", consequenceYes: 10, consequenceNo: -10)
 #Adventure.create(question: "", answerYes: "", answerNo: "", consequenceYes: , consequenceNo: )
 #Adventure.create(question: "", answerYes: "", answerNo: "", consequenceYes: , consequenceNo: )
+=======
+Adventure.create(question: "You are tired. in town, A postal clerk directes you to the Hapiday Motor Inn, Do you stay at this establishment?", answerYes: "Woo! Hot Water!", answerNo: "Wake up with slugs on your face", consequenceYes: 10, consequenceNo: -10)
+Adventure.create(question: "Oh, a snake on the path. No problem, it's obviously a non venemous specimen. Do you stop to instagram?", answerYes: "You find out a bite from any kind of snake is not great.", answerNo: "You spot an owl up ahead who becomes an instagram darling.", consequenceYes: -10, consequenceNo: 10)
+Adventure.create(question: "You've had the same music on your player since the start, a buddy proposes a music swap until you both get to the next shelter. Agree?", answerYes: "You gain about three new favorite bands and expand your musical tastes.", answerNo: "You are completely sick of all of your music and walk in silence", consequenceYes: 20, consequenceNo: -10)
+>>>>>>> bd31e78b5a00ae96c3961a531291b0d59f64cabc
 #Adventure.create(question: "", answerYes: "", answerNo: "", consequenceYes: , consequenceNo: )
 
 

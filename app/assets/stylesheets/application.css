@@ -26,8 +26,6 @@ html, body {
   color: #F5F5F5;
 }
 
-}
-
 .view {
   padding: 5px;
   border-width: 2px;
@@ -133,6 +131,7 @@ div.text-wrapper {
   font-weight: bold;
   max-width: 350px;
   line-height: 2em;
+ /* border: 2px solid red;*/
 
 }
 
@@ -145,12 +144,17 @@ div.adventure {
 }
 
 div.consequence {
+<<<<<<< HEAD
   padding-top: 20px;
+=======
+  padding-top: 5px;
+>>>>>>> bd31e78b5a00ae96c3961a531291b0d59f64cabc
   position: relative;
   top: -220px;
   width: 40%;
   left: 55%;
   text-align: center;
+/*  border: 2px solid green;*/
 
 
 }
