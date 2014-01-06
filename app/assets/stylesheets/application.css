@@ -100,9 +100,6 @@ input {
   padding: 20px;  
 }
 
-/*.map-view {
-  border-color: yellow;
-}*/
 
 div.gameWon {
   font-weight: bold;
@@ -116,6 +113,8 @@ div.gameWon {
 }
 
 #map {
+  border: 3px solid blue;
+
   position: relative;
   top: 150px;
   /*display: inline-block;*/
@@ -184,3 +183,5 @@ button:hover {
   background: #0b988c;
 }
 
+/*#map label { width: auto; display:inline; }
+#map img { max-width: none; max-height: none; }*/

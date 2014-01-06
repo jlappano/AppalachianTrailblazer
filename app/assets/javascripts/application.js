@@ -21,8 +21,8 @@
 //= require_tree ./backbone/views
 //= require_self
 
-$(function(){
 
+$(function(){
 
   // get the adventures and shelters in the database!
   var adventures = new AdventurePromptList();

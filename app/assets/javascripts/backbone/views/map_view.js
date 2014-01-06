@@ -1,14 +1,16 @@
+
+
 var MapView = Backbone.View.extend({
   id: 'map',
-  className: "view map-view",
 
   initialize: function(options){
     console.log("map view loaded");
+    console.log(this.$el);
+    console.log(this.el);
     this.player = options.player;
     this.icon =   'http://www.marcellusgas.org/images/gmap/beachflag.png';
     this.map =    new google.maps.Map(this.el, this.model.attributes);
     
-    //console.log(this.model.shelterCoordinates);
 
     this.path = new google.maps.Polyline({
       path: this.model.shelterCoordinates,
@@ -30,13 +32,13 @@ var MapView = Backbone.View.extend({
   render: function(){
     var lat = this.player.get("shelter").get("lat");
     var lng = this.player.get("shelter").get("long");
-    this.myLatLng = new google.maps.LatLng(lat, lng);
+    console.log(this.myLatLng = new google.maps.LatLng(lat, lng))
     this.marker = new google.maps.Marker({
       position: this.myLatLng,
       map:      this.map,
       icon:     this.icon
     });
-    $('#map').replaceWith(this.el);
+    $('#map').replaceWith( $(this.el));
     $("body").append( $(this.el));
   }
 
