@@ -31,7 +31,8 @@ Adventure.create(question: "Your pal offers you some water… take it?", answerY
 Adventure.create(question: "A river with no bridge up ahead, what adventure! Forge ahead here?", answerYes: "Oh wow, it didn't look that deep before, oh well… here we… oops… HALP!", answerNo: "You spot some sandbars upriver and get some sweet pics on the other side", consequenceYes: -25, consequenceNo: 20)
 Adventure.create(question: "You are tired. In town, A postal clerk directes you to the Hapiday Motor Inn, Do you stay at this establishment?", answerYes: "Woo! Hot Water!", answerNo: "Wake up with slugs on your face", consequenceYes: 10, consequenceNo: -10)
 Adventure.create(question: "Oh, a snake on the path. No problem, it's obviously a non venemous specimen. Do you stop to instagram?", answerYes: "You find out a bite from any kind of snake is not great.", answerNo: "You spot an owl up ahead who becomes an instagram darling.", consequenceYes: -10, consequenceNo: 10)
-Adventure.create(question: "You've had the same music on your player since the start, do you want to swap your music with another traveller?", answerYes: "You gain about three new favorite bands and expand your musical tastes.", answerNo: "You are completely sick of all of your music and walk in silence", consequenceYes: 20, consequenceNo: -10)
+Adventure.create(question: "You've had the same music on your player since the start, a buddy proposes a music swap until you both get to the next shelter. Agree?", answerYes: "You gain about three new favorite bands and expand your musical tastes.", answerNo: "You are completely sick of all of your music and walk in silence", consequenceYes: 20, consequenceNo: -10)
+
 #Adventure.create(question: "", answerYes: "", answerNo: "", consequenceYes: , consequenceNo: )
 
 
