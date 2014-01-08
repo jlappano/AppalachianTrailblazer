@@ -40,6 +40,9 @@ var MapView = Backbone.View.extend({
     });
     $('#map').replaceWith( $(this.el));
     $("body").append( $(this.el));
+    google.maps.event.trigger(this.map, 'resize');
+    console.log("this.map");
+    console.log(this.map);
   }
 
 });

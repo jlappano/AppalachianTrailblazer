@@ -1,13 +1,16 @@
 
 var Map = Backbone.Model.extend({
   defaults: {
-     zoom: 5
+     zoom: 5, 
   },
 
   initialize: function(){
     console.log("map model loaded");
-    this.center = new google.maps.LatLng(40.612732, -75.912438);
-    this.mapTypeId = google.maps.MapTypeId.TERRAIN;
+    this.set({center: new google.maps.LatLng(40.612732, -75.912438), mapTypeId: google.maps.MapTypeId.TERRAIN});
+    // this.center = new google.maps.LatLng(40.612732, -75.912438);
+    // this.mapTypeId = google.maps.MapTypeId.TERRAIN;
+
+    //center, mapTypeId
 //plots coordinates for Polyline
     this.shelterCoordinates = [
       new google.maps.LatLng(34.62673, -84.193656),
