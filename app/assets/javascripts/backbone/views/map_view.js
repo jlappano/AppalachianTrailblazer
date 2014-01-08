@@ -4,13 +4,10 @@ var MapView = Backbone.View.extend({
   id: 'map',
 
   initialize: function(options){
-    console.log("map view loaded");
-    console.log(this.$el);
-    console.log(this.el);
     this.player = options.player;
     this.icon =   'http://www.marcellusgas.org/images/gmap/beachflag.png';
     this.map =    new google.maps.Map(this.el, this.model.attributes);
-    
+    console.log(this.player);
 
     this.path = new google.maps.Polyline({
       path: this.model.shelterCoordinates,
@@ -30,6 +27,7 @@ var MapView = Backbone.View.extend({
   },
 
   render: function(){
+    console.log(this.player);
     var lat = this.player.get("shelter").get("lat");
     var lng = this.player.get("shelter").get("long");
     console.log(this.myLatLng = new google.maps.LatLng(lat, lng))
