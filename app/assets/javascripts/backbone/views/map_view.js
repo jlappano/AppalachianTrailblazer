@@ -10,7 +10,7 @@ var MapView = Backbone.View.extend({
     console.log("this player");
     console.log(this.player);
     console.log("latitude");
-    console.log(this.player.get("shelter").get("lat"));
+    console.log(this.player.get("shelter").get("latitude"));
 
     this.path = new google.maps.Polyline({
       path: this.model.shelterCoordinates,
