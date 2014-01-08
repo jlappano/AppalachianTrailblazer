@@ -1,0 +1,189 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+ */
+
+
+html, body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  text-align: center;
+  font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 100;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizelegibility;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #F5F5F5;
+}
+
+.view {
+  padding: 5px;
+  border-width: 2px;
+/*  border-style: solid;*/
+}
+
+
+.start-view hgroup{
+/*  display: inline-block;*/
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  color: black;
+  padding: .5em 3em;
+}
+
+header{
+  margin-left: -5px;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  height: 150px;
+  display: block;
+  overflow: hidden;
+  background: #b3cae5; /* Old browsers */
+  background: -moz-linear-gradient(top, #b3cae5, 12%, #dbdde4, 46%, #e4e3e4, 70%, #f7ddbb, 94%, #efcab2, 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b3cae5), color-stop(50%,#dbdde4), color-stop(70%,#e4e3e4), color-stop(100%,#f7ddbb)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #b3cae5, 12%, #dbdde4, 46%, #e4e3e4, 70%, #f7ddbb, 94%, #efcab2, 100%); /* Chrome10+,Safari5.1+ */
+/*  border: 2px solid black;*/
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
+  background-size: cover;
+  border: 2px solid black;
+  text-align: center;
+  font-family: "Calisto MT", "Bookman Old Style", Bookman, "Goudy Old Style", Garamond, "Hoefler Text", "Bitstream Charter", Georgia, serif;
+  color: rgba(0, 0, 0, 0.7);
+}
+header p {
+  margin-top: 40px;
+  font-size: 1.8em;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+input {
+  padding: 8px;
+  margin: 20px;
+}
+
+.start-view .blurb{
+  margin: 0 auto;
+  font-weight: bold;
+  max-width: 600px;
+  text-align: center;
+
+}
+
+/*
+.game-view {
+  border-color: red;
+}
+.yes-view {
+  border-color: purple;
+}
+.no-view {
+  border-color: blue;
+}
+.character-create-view {
+  border-color: orange;
+}*/
+
+.gameLost {
+  margin: 0 auto;
+  font-size: 2em;
+  padding: 20px;  
+}
+
+div.gameWon {
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.5);
+  margin: 0 auto;
+  font-size: 2em;
+  padding: 20px;
+  width: 100%;
+  height: 900px;
+  background-image: url(http://blog.appalachiantrials.com/wp-content/uploads/2013/12/Mount_Katahdin.jpg)
+}
+
+#map {
+  border: 3px solid blue;
+
+  position: relative;
+  top: 150px;
+  /*display: inline-block;*/
+  height: 80%;
+  width: 40%;
+  margin: 0px;
+  padding: 0px;
+  clear: both;
+/*  position: relative;
+  float: left;*/
+}
+
+.site {
+  position: relative;
+  display: inline-block;
+  top: 200px;
+  width: 60%;
+  text-align: center;
+}
+
+div.text-wrapper {
+  font-weight: bold;
+  max-width: 350px;
+  line-height: 2em;
+ /* border: 2px solid red;*/
+
+}
+
+div.adventure {
+  float: right;
+  position: relative;
+  top: -350px;
+  width: 45%;
+
+}
+
+div.consequence {
+  padding-top: 20px;
+  padding-top: 5px;
+  position: relative;
+  top: -220px;
+  width: 40%;
+  left: 55%;
+  text-align: center;
+/*  border: 2px solid green;*/
+
+}
+
+#minivan {
+  border-radius: 50%;
+}
+
+button {
+  margin: 5px;
+  width: 9.45em;
+  height: 3.15em;
+  background: #18a397;  
+  border-radius: 0.189em;
+  text-align: center;
+  cursor: pointer;
+  border: 0.126em solid #0b988c;
+  z-index: 1;
+}
+
+button:hover {
+  transition: 0.2s ease-in-out;
+  background: #0b988c;
+}
+
+/*#map label { width: auto; display:inline; }
+#map img { max-width: none; max-height: none; }*/
