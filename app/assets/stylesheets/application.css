@@ -33,7 +33,7 @@ html, body {
 }
 
 
-.start-view hgroup{
+hgroup{
 /*  display: inline-block;*/
   text-align: center;
   top: 50%;
@@ -63,9 +63,12 @@ header{
   color: rgba(0, 0, 0, 0.7);
 }
 header p {
-  margin-top: 40px;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  padding: .5em 3em;
   font-size: 1.8em;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 input {
@@ -81,19 +84,6 @@ input {
 
 }
 
-/*
-.game-view {
-  border-color: red;
-}
-.yes-view {
-  border-color: purple;
-}
-.no-view {
-  border-color: blue;
-}
-.character-create-view {
-  border-color: orange;
-}*/
 
 .gameLost {
   margin: 0 auto;
@@ -113,8 +103,6 @@ div.gameWon {
 }
 
 #map {
-  border: 3px solid blue;
-
   position: relative;
   top: 150px;
   /*display: inline-block;*/
