@@ -49,6 +49,14 @@
     <div class="text-wrapper">
     Your Morale is <%%= this.model.get("morale")%> out of 100.
       <br />
+      <div id="bar-2" class="bar-main-container emerald">
+        <div class="wrap">
+          <div class="bar-percentage" data-percentage="94"></div>
+            <div class="bar-container">
+            <div class="bar"></div>
+          </div>
+        </div>
+      </div>
     <%%= this.model.get("shelter").get("adventurePrompt").get("question") %>
       <br />
     <div class="answer-buttons">
