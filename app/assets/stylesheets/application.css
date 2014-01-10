@@ -172,6 +172,8 @@ button:hover {
   background: #0b988c;
 }
 
+#bar { text-align: center; margin: 20px; }
+
 .bar-main-container {
   margin: 10px auto;
   width: 300px;
