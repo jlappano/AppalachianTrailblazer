@@ -13104,7 +13104,6 @@ var Map = Backbone.Model.extend({
   },
 
   initialize: function(){
-    console.log("map model loaded");
     this.set({center: new google.maps.LatLng(40.612732, -75.912438), mapTypeId: google.maps.MapTypeId.TERRAIN});
 //plots coordinates for Polyline
     this.shelterCoordinates = [
@@ -13368,14 +13367,43 @@ var GameView = Backbone.View.extend({
     this.template = _.template($("script.game").html());
     var shelter = this.model.get("shelter");
     shelter.getAdventurePrompt();
-    this.render();
+    // this.barRender();
+    this.render(); 
+    this.changeBar();
   },
+
+  // barRender: function() {
+
+  // },
+
   render: function() {
     this.$el.html(this.template());
+    // this.changeBar();
   },
 
   events: {
     "click button": "renderAnswer",
+  },
+
+  changeBar: function() {
+
+      var progress = this.$(".bar-percentage");
+      // console.log(progress.attr('data-percentage'));
+      var percentage = Math.ceil(progress.attr('data-percentage'));
+      console.log("percent");
+      console.log(percentage);
+      $({countNum: 0}).animate({countNum: percentage}, {
+        duration: 1000,
+        easing:'linear',
+        step: function() {
+        // What todo on every count
+        console.log(this.countNum);
+        var pct = Math.ceil(this.countNum) + '%';
+        console.log("pct");
+        console.log(pct);
+        progress.text(pct) && progress.siblings().children().css('width',pct);
+      }
+    });
   },
 
   renderAnswer: function(e) {
@@ -13400,13 +13428,13 @@ var MapView = Backbone.View.extend({
   id: 'map',
 
   initialize: function(options){
-    console.log("map view loaded");
-    console.log(this.$el);
-    console.log(this.el);
     this.player = options.player;
     this.icon =   'http://www.marcellusgas.org/images/gmap/beachflag.png';
     this.map =    new google.maps.Map(this.el, this.model.attributes);
-    
+    console.log("this player");
+    console.log(this.player);
+    console.log("latitude");
+    console.log(this.player.get("shelter").get("latitude"));
 
     this.path = new google.maps.Polyline({
       path: this.model.shelterCoordinates,
@@ -13428,7 +13456,7 @@ var MapView = Backbone.View.extend({
   render: function(){
     var lat = this.player.get("shelter").get("lat");
     var lng = this.player.get("shelter").get("long");
-    console.log(this.myLatLng = new google.maps.LatLng(lat, lng))
+    this.myLatLng = new google.maps.LatLng(lat, lng);
     this.marker = new google.maps.Marker({
       position: this.myLatLng,
       map:      this.map,
@@ -13437,8 +13465,6 @@ var MapView = Backbone.View.extend({
     $('#map').replaceWith( $(this.el));
     $("body").append( $(this.el));
     google.maps.event.trigger(this.map, 'resize');
-    console.log("this.map");
-    console.log(this.map);
   }
 
 });
