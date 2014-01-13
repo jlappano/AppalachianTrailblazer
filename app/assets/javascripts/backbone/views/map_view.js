@@ -7,10 +7,6 @@ var MapView = Backbone.View.extend({
     this.player = options.player;
     this.icon =   'http://www.marcellusgas.org/images/gmap/beachflag.png';
     this.map =    new google.maps.Map(this.el, this.model.attributes);
-    console.log("this player");
-    console.log(this.player);
-    console.log("latitude");
-    console.log(this.player.get("shelter").get("latitude"));
 
     this.path = new google.maps.Polyline({
       path: this.model.shelterCoordinates,
@@ -41,6 +37,7 @@ var MapView = Backbone.View.extend({
     $('#map').replaceWith( $(this.el));
     $("body").append( $(this.el));
     google.maps.event.trigger(this.map, 'resize');
+    this.map.setCenter(new google.maps.LatLng(40.612732, -75.912438));
   }
 
 });

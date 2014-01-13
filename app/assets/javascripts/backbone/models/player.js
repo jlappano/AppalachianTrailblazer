@@ -41,7 +41,6 @@ var Player = Backbone.Model.extend({
       morale = 0;
       this.set({over: "lose"});
     }
-    // console.log("MORALE --> " + morale);
     this.set({morale: morale});
   }
 });

@@ -1,7 +1,7 @@
 
 var Map = Backbone.Model.extend({
   defaults: {
-     zoom: 5, 
+     zoom: 5,
   },
 
   initialize: function(){

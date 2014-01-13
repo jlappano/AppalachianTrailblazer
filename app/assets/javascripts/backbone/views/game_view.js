@@ -25,7 +25,6 @@ var GameView = Backbone.View.extend({
   },
 
   changeBar: function() {
-
       var progress = this.$(".bar-percentage");
       // console.log(progress.attr('data-percentage'));
       var percentage = Math.ceil(progress.attr('data-percentage'));
@@ -37,9 +36,9 @@ var GameView = Backbone.View.extend({
         step: function() {
         // What todo on every count
         console.log(this.countNum);
-        var pct = Math.round(this.countNum + .3) + '%';
-        console.log("pct");
-        console.log(pct);
+        var pct = Math.round(this.countNum + .4) + '%';
+        // console.log("pct");
+        // console.log(pct);
         progress.text(pct) && progress.siblings().children().css('width',pct);
       }
     });

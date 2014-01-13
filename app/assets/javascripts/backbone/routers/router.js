@@ -26,15 +26,14 @@ var Router = Backbone.Router.extend({
 
   arriveShelter: function(number) {
     if (number == 1) {
-      console.log(new MapView({model: TrailBlazerApp.map, player: TrailBlazerApp.player}));
-
+      TrailBlazerApp.mapView = new MapView({model: TrailBlazerApp.map, player: TrailBlazerApp.player});
     }
-    
 
     this.loadView(new GameView({model: TrailBlazerApp.player}));
   },
 
   gameOver: function(over) {
+    TrailBlazerApp.mapView.remove();
     this.loadView(new GameOverView({over: over}));
   },
 

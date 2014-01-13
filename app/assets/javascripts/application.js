@@ -28,7 +28,8 @@ $(function(){
   var adventures = new AdventurePromptList();
   adventures.fetch();
 
-  var shelters = new ShelterList();
+  TrailBlazerApp.shelters = new ShelterList();
+  var shelters = TrailBlazerApp.shelters;
   shelters.fetch({
     success: function(){
       shelters.each(function(shelter) {

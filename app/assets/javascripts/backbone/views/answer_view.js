@@ -4,6 +4,7 @@ var AnswerView = Backbone.View.extend({
 
   initialize: function(options){
     var answer = options.answer;
+    TrailBlazerApp.answerView = this;
     this.model.checkWin();
     
     //creator is the gameview that triggered this view
@@ -28,7 +29,7 @@ var AnswerView = Backbone.View.extend({
     //     game_view is gone, so no need to remove)
     //
     if (this.model.get("over") != "") {
-      console.log("Game Over!");
+      this.creator.remove();
       this.remove();
       $(".next").remove();
     } else {
@@ -42,9 +43,6 @@ var AnswerView = Backbone.View.extend({
   },
 
   moveOn: function() {
-    console.log("move along!");
-    console.log(this.model);
-
     this.creator.remove();
     this.model.hikeTheTrail();
     this.remove();
