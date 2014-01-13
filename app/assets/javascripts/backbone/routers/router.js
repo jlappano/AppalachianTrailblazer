@@ -10,14 +10,13 @@ var Router = Backbone.Router.extend({
     TrailBlazerApp.adventures = adventures;
     TrailBlazerApp.shelters = shelters;
     TrailBlazerApp.player = new Player({trail: shelters});
-
-    this.listenTo(TrailBlazerApp.player, "change:over", function (player){
-      Backbone.history.navigate("/game-over/" + player.get("over"), {trigger: true}); 
-    });
   },
 
   index: function() {
     this.loadView(new StartView());
+    this.listenTo(TrailBlazerApp.player, "change:over", function (player){
+      Backbone.history.navigate("/game-over/" + player.get("over"), {trigger: true}); 
+    });
   },
 
   characterCreate: function() {
