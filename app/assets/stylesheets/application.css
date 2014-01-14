@@ -134,7 +134,7 @@ div.text-wrapper {
 div.adventure {
   float: right;
   position: relative;
-  top: -380px;
+  top: -320px;
   width: 45%;
 
 }
@@ -142,8 +142,8 @@ div.adventure {
 div.consequence {
   padding-top: 5px;
   position: relative;
-  top: -150px;
-/*  width: 40%;*/
+  top: -80px;
+  width: 45%;
   left: 55%;
 /*  border: 2px solid green;*/
 

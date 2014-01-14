@@ -22,8 +22,6 @@ describe("Shelter", function(){
   });
 
   it('Will set passed attributes on the model instance when created.', function() { 
-    // what are the values expected here for each of the
-    // attributes in our Todo?
     expect(shelter.get('latitude')).toBe(555.55); 
     expect(shelter.get('longitude')).toBe(333.333); 
     expect(shelter.get('name')).toBe("Smoke House");
@@ -39,7 +37,6 @@ describe("Shelter", function(){
 
   it('Gets an adventure prompt object and sets it as an attribute.', function() {
     shelter.getAdventurePrompt();
-    //check to see if this test is useful, how could I test to see if the actual adventure is there?
     expect(shelter.get('adventurePrompt')).not.toBe(null);
   });
 
