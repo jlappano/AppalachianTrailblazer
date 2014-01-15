@@ -13052,14 +13052,13 @@ var Router = Backbone.Router.extend({
     TrailBlazerApp.adventures = adventures;
     TrailBlazerApp.shelters = shelters;
     TrailBlazerApp.player = new Player({trail: shelters});
-
-    this.listenTo(TrailBlazerApp.player, "change:over", function (player){
-      Backbone.history.navigate("/game-over/" + player.get("over"), {trigger: true}); 
-    });
   },
 
   index: function() {
     this.loadView(new StartView());
+    this.listenTo(TrailBlazerApp.player, "change:over", function (player){
+      Backbone.history.navigate("/game-over/" + player.get("over"), {trigger: true}); 
+    });
   },
 
   characterCreate: function() {
@@ -13068,15 +13067,14 @@ var Router = Backbone.Router.extend({
 
   arriveShelter: function(number) {
     if (number == 1) {
-      console.log(new MapView({model: TrailBlazerApp.map, player: TrailBlazerApp.player}));
-
+      TrailBlazerApp.mapView = new MapView({model: TrailBlazerApp.map, player: TrailBlazerApp.player});
     }
-    
 
     this.loadView(new GameView({model: TrailBlazerApp.player}));
   },
 
   gameOver: function(over) {
+    TrailBlazerApp.mapView.remove();
     this.loadView(new GameOverView({over: over}));
   },
 
@@ -13097,10 +13095,21 @@ var AdventurePrompt = Backbone.Model.extend({
   }
 })
 ;
+var GamePreparer = Backbone.Model.extend({
+
+initialize: function(opts){
+    TrailBlazerApp.player.set("name", opts["name"]);   
+    TrailBlazerApp.player.setInitialShelter();
+    var map = new Map();
+    TrailBlazerApp.map = map;
+    Backbone.history.navigate("shelter/1", {trigger: true});
+  },
+})
+;
 
 var Map = Backbone.Model.extend({
   defaults: {
-     zoom: 5, 
+     zoom: 5,
   },
 
   initialize: function(){
@@ -13206,7 +13215,6 @@ var Player = Backbone.Model.extend({
       morale = 0;
       this.set({over: "lose"});
     }
-    // console.log("MORALE --> " + morale);
     this.set({morale: morale});
   }
 });
@@ -13246,6 +13254,7 @@ var AnswerView = Backbone.View.extend({
 
   initialize: function(options){
     var answer = options.answer;
+    TrailBlazerApp.answerView = this;
     this.model.checkWin();
     
     //creator is the gameview that triggered this view
@@ -13270,7 +13279,7 @@ var AnswerView = Backbone.View.extend({
     //     game_view is gone, so no need to remove)
     //
     if (this.model.get("over") != "") {
-      console.log("Game Over!");
+      this.creator.remove();
       this.remove();
       $(".next").remove();
     } else {
@@ -13284,9 +13293,6 @@ var AnswerView = Backbone.View.extend({
   },
 
   moveOn: function() {
-    console.log("move along!");
-    console.log(this.model);
-
     this.creator.remove();
     this.model.hikeTheTrail();
     this.remove();
@@ -13319,16 +13325,7 @@ var CharacterCreateView = Backbone.View.extend({
     // set player name and initialize
     var name = this.$el.find("input[name='character-name']").val();
 
-    // answer: answer
-    
-    TrailBlazerApp.player.set("name", name);   
-    TrailBlazerApp.player.setInitialShelter();
-
-    var map = new Map();
-    TrailBlazerApp.map = map;
-
-    // console.log(name);
-    Backbone.history.navigate("shelter/1", {trigger: true});
+    new GamePreparer({name: name});
   },
 
 });
@@ -13336,7 +13333,6 @@ var GameOverView = Backbone.View.extend({
   className: "view game-over-view",
 
   initialize: function(options) {
-    console.log("game over init: " + options.over);
     if (options.over == "win") {
       this.template = _.template($("script.gameWon").html());  
     } else {
@@ -13354,6 +13350,8 @@ var GameOverView = Backbone.View.extend({
   },
 
   restart: function() {
+    TrailBlazerApp.player = new Player({trail: TrailBlazerApp.shelters});
+    TrailBlazerApp.answerView.remove();
     this.remove();
     Backbone.history.navigate("", {trigger: true});
   }
@@ -13367,14 +13365,43 @@ var GameView = Backbone.View.extend({
     this.template = _.template($("script.game").html());
     var shelter = this.model.get("shelter");
     shelter.getAdventurePrompt();
-    this.render();
+    // this.barRender();
+    this.render(); 
+    this.changeBar();
   },
+
+  // barRender: function() {
+
+  // },
+
   render: function() {
     this.$el.html(this.template());
+    // this.changeBar();
   },
 
   events: {
     "click button": "renderAnswer",
+  },
+
+  changeBar: function() {
+      var progress = this.$(".bar-percentage");
+      // console.log(progress.attr('data-percentage'));
+      var percentage = progress.attr('data-percentage');
+      console.log("percent");
+      console.log(percentage);
+      $({countNum: 0}).animate({countNum: percentage}, {
+        duration: 1000,
+        easing:'linear',
+        progress: function() {
+        // What todo on every count
+        console.log(this.countNum);
+        var pct = Math.ceil(this.countNum) + '%';
+        // console.log("pct");
+        // console.log(pct);
+        progress.text(pct);
+        progress.siblings().children().css('width',pct);
+      }
+    });
   },
 
   renderAnswer: function(e) {
@@ -13402,8 +13429,6 @@ var MapView = Backbone.View.extend({
     this.player = options.player;
     this.icon =   'http://www.marcellusgas.org/images/gmap/beachflag.png';
     this.map =    new google.maps.Map(this.el, this.model.attributes);
-    console.log("this player");
-    console.log(this.player);
 
     this.path = new google.maps.Polyline({
       path: this.model.shelterCoordinates,
@@ -13434,6 +13459,7 @@ var MapView = Backbone.View.extend({
     $('#map').replaceWith( $(this.el));
     $("body").append( $(this.el));
     google.maps.event.trigger(this.map, 'resize');
+    this.map.setCenter(new google.maps.LatLng(40.612732, -75.912438));
   }
 
 });
@@ -13489,7 +13515,8 @@ $(function(){
   var adventures = new AdventurePromptList();
   adventures.fetch();
 
-  var shelters = new ShelterList();
+  TrailBlazerApp.shelters = new ShelterList();
+  var shelters = TrailBlazerApp.shelters;
   shelters.fetch({
     success: function(){
       shelters.each(function(shelter) {
