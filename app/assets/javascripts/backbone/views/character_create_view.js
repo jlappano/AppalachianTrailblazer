@@ -20,6 +20,7 @@ var CharacterCreateView = Backbone.View.extend({
     var name = this.$el.find("input[name='character-name']").val();
 
     new GamePreparer({name: name});
+    this.remove();
   },
 
 });

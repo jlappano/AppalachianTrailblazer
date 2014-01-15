@@ -36,6 +36,7 @@ var MapView = Backbone.View.extend({
     });
     $('#map').replaceWith( $(this.el));
     $("body").append( $(this.el));
+    document.getElementById('map').style.position = 'absolute';
     google.maps.event.trigger(this.map, 'resize');
     this.map.setCenter(new google.maps.LatLng(40.612732, -75.912438));
   }

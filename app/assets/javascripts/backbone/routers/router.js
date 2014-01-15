@@ -33,6 +33,7 @@ var Router = Backbone.Router.extend({
 
   gameOver: function(over) {
     TrailBlazerApp.mapView.remove();
+    $( "#map" ).empty();
     this.loadView(new GameOverView({over: over}));
   },
 

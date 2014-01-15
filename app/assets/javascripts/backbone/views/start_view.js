@@ -16,7 +16,7 @@ var StartView = Backbone.View.extend({
 
   renderCharacterCreate: function(){
     
-    //this.remove();
+    this.remove();
     Backbone.history.navigate("character", {trigger: true});
   }
 });
