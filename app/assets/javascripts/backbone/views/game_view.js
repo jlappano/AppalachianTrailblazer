@@ -57,7 +57,8 @@ var GameView = Backbone.View.extend({
     } else {
       this.model.changeMorale(adventure.get("consequenceNo"));
     }
-
-    new AnswerView({model: this.model, creator: this, answer: answer});
+    this.innerView1 = new AnswerView({model: this.model, creator: this, answer: answer});
+    this.$('.inner-view-container')
+        .append(this.innerView1.el)
   }
 });

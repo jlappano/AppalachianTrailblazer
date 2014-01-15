@@ -26,30 +26,28 @@ html, body {
   color: #F5F5F5;
 }
 
-.view {
+/*.view {
   padding: 5px;
   border-width: 2px;
 /*  border-style: solid;*/
-}
 
 
 hgroup{
-/*  display: inline-block;*/
-  text-align: center;
-  top: 50%;
-  left: 50%;
-  color: black;
-  padding: .5em 3em;
+  padding-top: 7px;
 }
 
 header{
-  margin-left: -5px;
-  position: absolute;
+  position: relative;
+  width: 100%;
+  display: block;
+  overflow: hidden;
+  height: 130px;
+/*  position: absolute;
   width: 100%;
   top: 0;
   height: 150px;
   display: block;
-  overflow: hidden;
+  overflow: hidden;*/
   background: #b3cae5; /* Old browsers */
   background: -moz-linear-gradient(top, #b3cae5, 12%, #dbdde4, 46%, #e4e3e4, 70%, #f7ddbb, 94%, #efcab2, 100%); /* FF3.6+ */
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b3cae5), color-stop(50%,#dbdde4), color-stop(70%,#e4e3e4), color-stop(100%,#f7ddbb)); /* Chrome,Safari4+ */
@@ -65,9 +63,6 @@ header{
 
 header p {
   text-align: center;
-  top: 50%;
-  left: 50%;
-  padding: .5em 3em;
   font-size: 1.8em;
   color: rgba(0, 0, 0, 0.8);
 }
@@ -103,8 +98,8 @@ div.gameWon {
 }
 
 #map {
-  position: relative;
-  top: 150px;
+  position: absolute;
+  top: 130px;
   /*display: inline-block;*/
   height: 80%;
   width: 40%;
@@ -118,7 +113,7 @@ div.gameWon {
 .site {
   position: relative;
   display: inline-block;
-  top: 200px;
+  margin-top: 5%;
   width: 60%;
   text-align: center;
 }
@@ -131,7 +126,7 @@ div.text-wrapper {
 
 }
 
-div.adventure {
+/*div.adventure {
   float: right;
   position: relative;
   top: -320px;
@@ -147,6 +142,26 @@ div.consequence {
   left: 55%;
 /*  border: 2px solid green;*/
 
+.adventure{
+  position: relative;
+  display: inline-block;
+  margin-top: 5%;
+  float: right;
+  height: 70%;
+  width: 55%;
+}
+ 
+.text-wrapper{
+  margin: 0 auto;
+}
+ 
+ 
+ 
+div.consequence {
+  padding-top: 5px;
+  position: relative;
+  border: 2px solid green;
+ 
 }
 
 #minivan {
