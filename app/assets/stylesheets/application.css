@@ -159,9 +159,7 @@ div.consequence {
  
 div.consequence {
   padding-top: 5px;
-  position: relative;
-  border: 2px solid green;
- 
+  position: relative; 
 }
 
 #minivan {
