@@ -1,4 +1,4 @@
-# README
+= README
 
 
 The Appalachian Trailblazer is a nod to a certain beloved "Go forth west" game of of the 90's.
@@ -9,18 +9,18 @@ This App was built on a Rails framework, using Ruby 2.0.0 and Rails 4.0.0. Shelt
 Play at <http://guarded-oasis-5521.herokuapp.com>
 
 
-## Front End
+== Front End
 
 The full game is built with Javascript using the Backbone framework.
 
-### Collections:
+=== Collections:
 
 * Adventure Prompt list: syncs with DB to populate with adventure models. 
 
 * Shelter List: syncs with DB to populate with shelter models; adds the Adventure Prompt List as an attribute. 
  
 
-### Models: 
+=== Models: 
 
 * Adventure Prompt: Stored in the DB as "adventures" containing the attributes, "question, answerYes, answerNo, consequenceYes, consequenceNo."
 
@@ -32,7 +32,7 @@ The full game is built with Javascript using the Backbone framework.
 
 * Game Preparer: contains logic tied to the start of gameplay. Sets player name, gives player a shelter with a sequence of one, creates map model, and navigates to first adventure.
 
-### Game Flow:
+=== Game Flow:
 
 in Appplication.js:
 
