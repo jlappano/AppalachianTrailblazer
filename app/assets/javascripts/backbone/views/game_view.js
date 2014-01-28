@@ -11,13 +11,9 @@ var GameView = Backbone.View.extend({
     this.changeBar();
   },
 
-  // barRender: function() {
-
-  // },
 
   render: function() {
     this.$el.html(this.template());
-    // this.changeBar();
   },
 
   events: {
@@ -37,8 +33,6 @@ var GameView = Backbone.View.extend({
         // What todo on every count
         console.log(this.countNum);
         var pct = Math.ceil(this.countNum) + '%';
-        // console.log("pct");
-        // console.log(pct);
         progress.text(pct);
         progress.siblings().children().css('width',pct);
       }

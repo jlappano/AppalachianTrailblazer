@@ -1,5 +1,3 @@
-
-
 var MapView = Backbone.View.extend({
   id: 'map',
 
@@ -18,7 +16,7 @@ var MapView = Backbone.View.extend({
     
     this.path.setMap(this.map);
 
-    // set up listeners to changing model
+    // set up listeners to changing model, render a new marker each time player is at a new shelter
     this.listenTo(this.player, 'change:shelter', this.render);
     this.listenTo(this.player, 'change:over', this.remove);
 
@@ -36,6 +34,8 @@ var MapView = Backbone.View.extend({
     });
     $('#map').replaceWith( $(this.el));
     $("body").append( $(this.el));
+
+    //overrides map's positioning for future iterations of the game
     document.getElementById('map').style.position = 'absolute';
     google.maps.event.trigger(this.map, 'resize');
     this.map.setCenter(new google.maps.LatLng(40.612732, -75.912438));

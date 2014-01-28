@@ -1,10 +1,10 @@
-
 var Map = Backbone.Model.extend({
   defaults: {
      zoom: 5,
   },
 
   initialize: function(){
+//.set must be used to add center and mapTypeId into the attributes hash
     this.set({center: new google.maps.LatLng(40.612732, -75.912438), mapTypeId: google.maps.MapTypeId.TERRAIN});
 //plots coordinates for Polyline
     this.shelterCoordinates = [

@@ -21,7 +21,7 @@ var AnswerView = Backbone.View.extend({
     //  because most events around game ending are tied to a change on the player model,
     //  the events happen the moment the morale is changed on the model, ie before this
     //  view is rendered... thus when this view is rendered the game will have been over
-    //  if the morale is lower than 0 or shelter is greater than length
+    //  if the morale is lower than 0 or shelter sequence is greater than length
     // render buttons accordingly:
     //  > if game over, remove answer view's default onwards (ie .next) button
     //  > if game not over, show answer view's onwards button but remove game_view's buttons

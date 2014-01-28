@@ -16,7 +16,7 @@ var Player = Backbone.Model.extend({
   },
 
   hikeTheTrail: function(){
-    //changes player's shelter by increasing the index in 
+    //changes player's shelter by increasing the index of the player's shelter  
     var index = this.trail.models.indexOf(this.get("shelter"));
     this.set({shelter: this.trail.at(index + 1)});
   },

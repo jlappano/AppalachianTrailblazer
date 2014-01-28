@@ -101,7 +101,7 @@ div.gameWon {
   position: absolute;
   top: 130px;
   /*display: inline-block;*/
-  height: 80%;
+  height: 100%;
   width: 40%;
   margin: 0px;
   padding: 0px;
