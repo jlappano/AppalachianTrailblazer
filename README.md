@@ -1,4 +1,4 @@
-= README
+# README
 
 
 The Appalachian Trailblazer is a nod to a certain beloved "Go forth west" game of of the 90's.
@@ -9,30 +9,30 @@ This App was built on a Rails framework, using Ruby 2.0.0 and Rails 4.0.0. Shelt
 Play at <http://guarded-oasis-5521.herokuapp.com>
 
 
-== Front End
+## Front End
 
 The full game is built with Javascript using the Backbone framework.
 
-=== Collections:
+### Collections:
 
 * Adventure Prompt list: syncs with DB to populate with adventure models. 
 
 * Shelter List: syncs with DB to populate with shelter models; adds the Adventure Prompt List as an attribute. 
  
 
-=== Models: 
+### Models: 
 
 * Adventure Prompt: Stored in the DB as "adventures" containing the attributes, "question, answerYes, answerNo, consequenceYes, consequenceNo."
 
-* Shelter: Contains atrributes "latitude, longtitude, sequence, name, adventureList."
+* Shelter: Contains atrributes "latitude, longtitude, sequence, name, adventureList." Samples randomly from the Adventure Promt List for a single adventure.  
 
 * Player: Is intialized with a trail collection. It can set it own shelter based on index, check for a win, and change morale level.
 
-* Map: Contains attributes that are needed for view rendering. 
+* Map: Contains attributes that are needed for view rendering. All map logic utilizes the Google Maps API.  
 
 * Game Preparer: contains logic tied to the start of gameplay. Sets player name, gives player a shelter with a sequence of one, creates map model, and navigates to first adventure.
 
-=== Game Flow:
+### Game Flow:
 
 in Appplication.js:
 
@@ -55,12 +55,12 @@ in Appplication.js:
       Backbone.history.start();
       });
 
-gets the adventures and shelters in the database, instantiate the router and begin navigation history! Master TraiblazerApp object is created for namespacing:
+gets the adventures and shelters from the database, instantiates the router and begin navigation history! Master TraiblazerApp object is created for namespacing:
 
       var TrailBlazerApp = {};
 
 
-In the Router, the index function is triggered, which instantiates a StartView and listens to the player for a completed game:
+In the Router, the index function is triggered, which instantiates a Start View and listens to the player for a completed game:
 
       index: function() {
        this.loadView(new StartView());
@@ -72,7 +72,7 @@ In the Router, the index function is triggered, which instantiates a StartView a
 
 ![Alt text](/app/assets/images/screenshots/startview.png)
 
-Once the player decides to begin the game the router triggers the creation of a CharacterCreateView. Once the player fills in a Trail Name and submits the form, the startGame function is called. 
+Once the player decides to begin the game the router triggers the creation of a Character Create View. Once the player fills in a Trail Name and submits the form, the startGame function is called. 
 
       startGame: function(e) {
        e.preventDefault();
@@ -112,7 +112,7 @@ GameView is responsible for the morale bar animation, and renders the adventure'
     
 The player model changes it's shelter attribute to a shelter with a greater trail sequence, and the arriveShelter function is once again called by the router.
 
-The Game ends for either reason, the gameOver function is called with the value of the Player's "over" attribute passed in. A Game Over view is created, with different templates rendered based on the value of "over". If the player wants to restart the game:
+When the game ends for either reason, the gameOver function is called with the value of the Player's "over" attribute passed in. A Game Over view is created, with different templates rendered based on the value of "over". If the player wants to restart the game:
 
     restart: function() {
      TrailBlazerApp.player = new Player({trail: TrailBlazerApp.shelters});
@@ -121,11 +121,20 @@ The Game ends for either reason, the gameOver function is called with the value 
      Backbone.history.navigate("", {trigger: true});
     }
 
-A new Player must be created and url is routed back to the index. On future games, when the map is re-rendered, it must have it positioning overrided to "absolute" and it's center re defined.
+A new Player must be created and url is routed back to the index. On future games, when the map is re-rendered, it must have it positioning overrided to "absolute" and its center re-defined.
 
     document.getElementById('map').style.position = 'absolute';
     google.maps.event.trigger(this.map, 'resize');
     this.map.setCenter(new google.maps.LatLng(40.612732, -75.912438)); 
+
+
+### Testing 
+
+The backbone models are tested using Jasmine. 
+
+
+
+
 
 
 
